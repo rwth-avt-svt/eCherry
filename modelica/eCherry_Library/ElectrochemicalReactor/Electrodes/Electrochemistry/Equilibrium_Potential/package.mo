@@ -1,0 +1,3 @@
+within eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry;
+package Equilibrium_Potential
+end Equilibrium_Potential;

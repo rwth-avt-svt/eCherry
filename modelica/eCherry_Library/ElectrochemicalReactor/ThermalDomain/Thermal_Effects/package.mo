@@ -1,0 +1,3 @@
+within eCherry_Library.ElectrochemicalReactor.ThermalDomain;
+package Thermal_Effects
+end Thermal_Effects;

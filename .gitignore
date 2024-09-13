@@ -1,0 +1,24 @@
+*.exp
+*.c
+*.lib
+*.mat
+*.exe
+*.txt
+*.bak-mo
+*.mof
+
+*.h
+*.dll
+*.xml
+*.html
+
+# Ignore all .jpg and .png files
+*.jpg
+*.png
+
+# Don't ignore the icons folder
+# !modelica/icons/*
+
+# Don't ignore .jpg and .png files inside the icons folder
+!modelica/icons/*.jpg
+!modelica/icons/*.png

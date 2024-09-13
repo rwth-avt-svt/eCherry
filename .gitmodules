@@ -1,0 +1,6 @@
+[submodule "modelica/thirdParty/electrolytemedia"]
+	path = modelica/thirdParty/electrolytemedia
+	url = https://git.rwth-aachen.de/avt-svt/public/electrolytemedia.git
+[submodule "modelica/thirdParty/PhotoVoltaics"]
+	path = modelica/thirdParty/PhotoVoltaics
+	url = https://github.com/christiankral/PhotoVoltaics.git

@@ -1,0 +1,4 @@
+within eCherry_Library.ElectrochemicalReactor.ThermalDomain;
+package ElectrolyzerColdStart_Models
+
+end ElectrolyzerColdStart_Models;

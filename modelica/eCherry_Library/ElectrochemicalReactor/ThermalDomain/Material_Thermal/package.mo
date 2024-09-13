@@ -1,0 +1,3 @@
+within eCherry_Library.ElectrochemicalReactor.ThermalDomain;
+package Material_Thermal
+end Material_Thermal;
