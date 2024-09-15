@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid;
 model Compartment_Conti_0D_GL
   extends
-    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.CompartmentBase;
+    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.Compartment_Base;
 
   constant Real R = 8.314 "ideal gas constant J/molK";
   parameter Pressure P;

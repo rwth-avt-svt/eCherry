@@ -1,2 +1,2 @@
-FixedConvInflow_L_Thermal
-DiffusiveConnectionLayer_Thermal
+Material_Simple_InFlow_Thermal
+ConnectionLayer_Diffusive_Thermal

@@ -14,27 +14,27 @@ model MultipleElectrochemicalReactions
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-92,-30},{-72,-10}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     AnodeInflow(specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-      molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_an*
-        0.0001)
+      molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_an
+        *0.0001)
     annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     CathodeInflow(specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-      molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_cat*
-        0.0001)
+      molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_cat
+        *0.0001)
     annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_anode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{-50,-4},{-30,16}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_anode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{-50,22},{-30,42}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_Cathode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{30,-4},{50,16}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_cathode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{30,22},{50,42}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L
@@ -75,9 +75,9 @@ model MultipleElectrochemicalReactions
     CathodeEl=true)
     annotation (Placement(transformation(extent={{72,-30},{92,-10}})));
 
-  eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Current_Source.ConstantCurrentDensity
-    constantCurrentDensity(GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec, jFixed=
-        50)        annotation (Placement(transformation(
+  eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Current_Source.CurrentDensity_Fixed
+    constantCurrentDensity(GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
+      jFixed=50) annotation (Placement(transformation(
         extent={{10,10},{-10,-10}},
         rotation=0,
         origin={0,70})));

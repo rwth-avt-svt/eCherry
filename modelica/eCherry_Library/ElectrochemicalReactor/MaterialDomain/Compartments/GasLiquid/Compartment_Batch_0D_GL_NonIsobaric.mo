@@ -2,7 +2,7 @@ within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiq
 model Compartment_Batch_0D_GL_NonIsobaric
   "A compartment with diffusive connectors for reactions at electrodes and material hold-up"
   extends
-    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.CompartmentBase;
+    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.Compartment_Base;
 
   parameter AmountOfSubstance mol_tot_0 = sum(mol_vec_0[i] for i in 1:specRec.nSpec);
 

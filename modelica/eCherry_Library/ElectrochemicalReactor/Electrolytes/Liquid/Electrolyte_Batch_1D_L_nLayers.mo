@@ -19,7 +19,7 @@ model Electrolyte_Batch_1D_L_nLayers
   parameter Length dXs[n_slices]= fill(X_difflayer/n_slices,n_slices) "the width of each small layer";
   parameter Length diff_distances[n_slices-1]=get_diffusion_distances(dXs) "the distance between the centers of two adjacent elements";
 
-  MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer diffConneL[n_slices
+  MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive diffConneL[n_slices
      - 1](
     each specRec=specRec,
     each GeoRec=GeoRec,

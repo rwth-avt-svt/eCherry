@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain;
-partial model EnergyBalance_base
+partial model EnergyBalance_Base
 
   parameter Temperature Tref = 298.15 "Refrence temperature for calculation of heat capacity";
   inner parameter Pressure P=10^5;
@@ -32,4 +32,4 @@ equation
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
-end EnergyBalance_base;
+end EnergyBalance_Base;

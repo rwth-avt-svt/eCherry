@@ -1,14 +1,14 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source;
-model ImposedPotential
+model Voltage_Variable
 
   // Inheritance
-  extends GeneralSource;
+  extends Electrical_Source_Base;
 
   // Input parameters
-  parameter Voltage Ufixed "Imposed cell potential";
+  Voltage U "Imposed cell potential";
 
 equation
 
-    v = Ufixed;
+    v = U;
 
-end ImposedPotential;
+end Voltage_Variable;

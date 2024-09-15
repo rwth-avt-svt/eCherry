@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Power_Source;
-model LoadExternalData
+model Power_ExternalData
 
   import ModelicaServices;
 
@@ -27,7 +27,7 @@ model LoadExternalData
 //               = 3: Periodically repeat the table data (periodical function).
 //               = 4: No extrapolation, i.e. extrapolation triggers an error
 
-  PowerConnector powerConnector annotation (Placement(transformation(extent={{-10,
+  Power_Simple powerConnector annotation (Placement(transformation(extent={{-10,
             -110},{10,-90}}), iconTransformation(extent={{-10,-110},{10,-90}})));
 
 equation
@@ -37,4 +37,4 @@ equation
                  Placement(transformation(extent={{-310,50},{-290,70}})),
               Icon(graphics={Bitmap(extent={{-90,-88},{68,72}}, fileName=
               "modelica://eCherry_Library/../Icons/Windmill.png")}));
-end LoadExternalData;
+end Power_ExternalData;

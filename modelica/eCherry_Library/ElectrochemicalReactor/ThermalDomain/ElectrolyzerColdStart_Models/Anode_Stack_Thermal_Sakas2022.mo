@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain.ElectrolyzerColdStart_Models;
 model Anode_Stack_Thermal_Sakas2022
   extends Anode_Sakas2022;
-  extends EnergyBalance_base;
+  extends EnergyBalance_Base;
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable "Temperature is variale for energy balance";

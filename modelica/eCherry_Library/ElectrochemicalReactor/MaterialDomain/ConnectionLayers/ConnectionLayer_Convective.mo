@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.ConnectionLayers;
-model ConvectiveConnectionLayer
+model ConnectionLayer_Convective
   "A layer connecting two compartments by convection (via flow parallel to layer, not through layer!)"
 
   // Species handling
@@ -34,4 +34,4 @@ equation
 
     annotation (Icon(graphics={Bitmap(extent={{-100,-102},{100,100}}, fileName=
               "modelica://eCherry_Library/../Icons/DiffusionLayer.png")}));
-end ConvectiveConnectionLayer;
+end ConnectionLayer_Convective;

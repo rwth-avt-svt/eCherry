@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Separators.Thermal;
 model DiaphragmHydroxide_Thermal
   extends DiaphragmHydroxide;
-  extends ThermalDomain.EnergyBalance_base;
+  extends ThermalDomain.EnergyBalance_Base;
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                  "Temperature is variable for energy balance";

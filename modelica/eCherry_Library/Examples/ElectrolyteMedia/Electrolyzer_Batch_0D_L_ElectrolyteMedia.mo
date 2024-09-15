@@ -10,7 +10,7 @@ model Electrolyzer_Batch_0D_L_ElectrolyteMedia
   1,1,1,1,1,1,1,
   epsi,epsi,55e3}/1000 "the different unit is because of the eMedia";
 
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(Ufixed=-2, GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

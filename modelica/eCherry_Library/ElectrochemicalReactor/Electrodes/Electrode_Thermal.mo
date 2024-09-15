@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Electrodes;
 model Electrode_Thermal
   extends eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode;
-  extends ThermalDomain.EnergyBalance_base;
+  extends ThermalDomain.EnergyBalance_Base;
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                  "Temperature is variale for energy balance";

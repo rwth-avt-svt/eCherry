@@ -72,24 +72,25 @@ model Cell_Conti_0D_L_Thermal_Sakas2022
     EBRec=EBRec,
     QFlow_shunt=QFlow_shunt)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-  Material_Thermal.FixedConvInflow_L_Thermal fixedConvInflow_L_Anode(
+  Material_Thermal.Material_Simple_InFlow_Thermal fixedConvInflow_L_Anode(
     specRec=specRec,
     molFlow_vec=molFlow_vec_inFlow,
     EBRec=EBRec)
     annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-  Material_Thermal.FixedConvInflow_L_Thermal fixedConvInflow_L_Cathode(
+  Material_Thermal.Material_Simple_InFlow_Thermal fixedConvInflow_L_Cathode(
     specRec=specRec,
     molFlow_vec=molFlow_vec_inFlow,
     EBRec=EBRec)
     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
-  MaterialDomain.Flows.ConnectingFlowL connectingFlow_L_Anolyte(specRec=specRec)
+  MaterialDomain.Flows.Material_Simple_ConnectingFlow connectingFlow_L_Anolyte(
+      specRec=specRec)
     annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-  MaterialDomain.Flows.ConnectingFlowL connectingFlow_L_Catholyte(specRec=
-        specRec)
+  MaterialDomain.Flows.Material_Simple_ConnectingFlow
+    connectingFlow_L_Catholyte(specRec=specRec)
     annotation (Placement(transformation(extent={{20,20},{40,40}})));
-  MaterialDomain.Flows.EnvironmentL environment_L_Anolyte(specRec=specRec)
+  MaterialDomain.Flows.Environment environment_L_Anolyte(specRec=specRec)
     annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
-  MaterialDomain.Flows.EnvironmentL environment_L_Catholyte(specRec=specRec)
+  MaterialDomain.Flows.Environment environment_L_Catholyte(specRec=specRec)
     annotation (Placement(transformation(extent={{20,50},{40,70}})));
 equation
   connect(Catholyte.inFlow, fixedConvInflow_L_Cathode.convFlow)

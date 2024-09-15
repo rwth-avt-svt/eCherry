@@ -27,7 +27,7 @@ model CyclicVoltammetry
     kappa_const=30000,
     c0=Data.UserInput.Pyschik2024_CyclicVoltammetry.c0)
     annotation (Placement(transformation(extent={{26,-32},{46,-12}})));
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer(
     specRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.FRRspec,
     GeoRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.GeoRec,
@@ -42,7 +42,7 @@ model CyclicVoltammetry
     c0=Data.UserInput.Pyschik2024_CyclicVoltammetry.c0,
     kappa_con=30000)
     annotation (Placement(transformation(extent={{-18,-36},{2,-16}})));
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.CyclicVoltammetry
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_CyclicVoltammetry
     source(
     GeoRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.GeoRec,
     Scanrate=10,

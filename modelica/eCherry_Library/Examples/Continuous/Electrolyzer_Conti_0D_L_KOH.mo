@@ -3,7 +3,7 @@ model Electrolyzer_Conti_0D_L_KOH
   "Example model showing the influence of calculating the conductivity depending on the electrolyte concentration."
  extends Modelica.Icons.Example;
  import  eCherry_Library;
-  eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.GeoRec,
       Ufixed=-2.5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -35,11 +35,11 @@ model Electrolyzer_Conti_0D_L_KOH
     CathodeEl=true)
     annotation (Placement(transformation(extent={{70,-30},{90,-10}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     AnodeInflow(specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.AWEKOHspec,
       molFlow_vec={0,1.45e-12,1e-4,50,50,55e3}*0.000001)
     annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     CathodeInflow(specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.AWEKOHspec,
       molFlow_vec={0,1.45e-12,1e-4,6000,6000,55e3}*0.000001)
     annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
@@ -52,16 +52,16 @@ model Electrolyzer_Conti_0D_L_KOH
     kappa=38)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_anode(specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.AWEKOHspec)
     annotation (Placement(transformation(extent={{-50,-4},{-30,16}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_anode(specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.AWEKOHspec)
     annotation (Placement(transformation(extent={{-50,26},{-30,46}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_Cathode(specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.AWEKOHspec)
     annotation (Placement(transformation(extent={{30,-4},{50,16}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_cathode(specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_KOH.AWEKOHspec)
     annotation (Placement(transformation(extent={{30,24},{50,44}})));
 

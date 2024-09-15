@@ -2,7 +2,7 @@ within eCherry_Library.ElectrochemicalReactor.ThermalDomain.ElectrolyzerColdStar
 model Electrolyte_Conti_0D_Thermal_Sakas2022
   "Temperature of convective inflow is the same as outflow Temperature"
   extends Electrolytes.Liquid.Electrolyte_Conti_0D_L;
-  extends ThermalDomain.EnergyBalance_base;
+  extends EnergyBalance_Base;
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                                "Temperature is variale for energy balance";

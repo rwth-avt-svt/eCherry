@@ -3,12 +3,12 @@ model Electrolyzer_Batch_1D_L_Ndiscs
 
     extends Modelica.Icons.Example;
  parameter Integer n_slices=100 "in the diffusion layer, how many slices?";
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     Y=0.1,
     Z=0.1,
-    Ufixed=-2.3)     annotation (Placement(transformation(
+    Ufixed=-2.3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={0,50})));
@@ -45,14 +45,14 @@ model Electrolyzer_Batch_1D_L_Ndiscs
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     c0=Data.UserInput.Example_AlkalineWaterElectrolysis.c0)
     annotation (Placement(transformation(extent={{26,-32},{46,-12}})));
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer(
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     Y=0.1,
     Z=0.1,
     dX=1e-7) annotation (Placement(transformation(extent={{-14,8},{6,28}})));
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer1(
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,

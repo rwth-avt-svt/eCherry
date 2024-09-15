@@ -75,12 +75,12 @@ model CouplingElectrolysisAndPhotovoltaics
     CathodeEl=true)
     annotation (Placement(transformation(extent={{80,-20},{100,0}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     AnodeInflow(specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
       molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.c0
         *0.00000833333)
     annotation (Placement(transformation(extent={{-40,-56},{-20,-36}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     CathodeInflow(specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
       molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.c0
         *0.00000833333)
@@ -95,13 +95,13 @@ model CouplingElectrolysisAndPhotovoltaics
     X=5e-4,
     kappa=27.1) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_anode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec)
     annotation (Placement(transformation(extent={{-40,6},{-20,26}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_anode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec)
     annotation (Placement(transformation(extent={{-40,32},{-20,52}})));
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_Cathode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec)
     annotation (Placement(transformation(extent={{40,4},{60,24}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
@@ -121,7 +121,7 @@ model CouplingElectrolysisAndPhotovoltaics
         eCherry_Library.ElectrochemicalReactor.Properties.ConductivityModels.ConductivityElectrolyteGLBruggeman)
     annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
-  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_cathode(specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec)
     annotation (Placement(transformation(extent={{40,32},{60,52}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL

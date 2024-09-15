@@ -3,9 +3,9 @@ model Electrolyzer_Batch_1D_L_Thermal
     extends Modelica.Icons.Example;
  parameter Integer n_slices=100 "in the diffusion layer, how many slices?";
  Temperature Tdistr_all[2*n_slices+1];
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
-      Ufixed=-2.3)   annotation (Placement(transformation(
+      Ufixed=-2.3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={0,50})));
@@ -47,7 +47,7 @@ model Electrolyzer_Batch_1D_L_Thermal
     c0=Data.UserInput.Example_AlkalineWaterElectrolysis.c0,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{26,-32},{46,-12}})));
-  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.DiffusiveConnectionLayer_Thermal
+  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.ConnectionLayer_Diffusive_Thermal
     diffusiveConnectionLayerAnolyte(
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
@@ -56,7 +56,7 @@ model Electrolyzer_Batch_1D_L_Thermal
     dX=1e-7,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-14,8},{6,28}})));
-  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.DiffusiveConnectionLayer_Thermal
+  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.ConnectionLayer_Diffusive_Thermal
     diffusiveConnectionLayerCatholyte(
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
@@ -89,10 +89,10 @@ model Electrolyzer_Batch_1D_L_Thermal
     n_slices=n_slices,
     c0=Data.UserInput.Example_AlkalineWaterElectrolysis.c0)
     annotation (Placement(transformation(extent={{90,-32},{110,-12}})));
-  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating
+  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating_TFixed
     externalHeatingAnode(EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
-  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating
+  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating_TFixed
     externalHeatingCathode(EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{148,-60},{168,-40}})));
 equation

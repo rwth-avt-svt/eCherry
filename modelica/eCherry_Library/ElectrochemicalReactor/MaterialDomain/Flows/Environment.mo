@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows;
-model EnvironmentL "Integrating an outflow, not imposing anything"
+model Environment "Integrating an outflow, not imposing anything"
 
   // Species handling
   parameter Data.DataRecords.Species.SpeciesRecord specRec(nSpec=0);
@@ -23,4 +23,4 @@ equation
         fillColor={170,213,255}), Text(
         extent={{-150,12},{150,-18}},
         textString="V")}));
-end EnvironmentL;
+end Environment;

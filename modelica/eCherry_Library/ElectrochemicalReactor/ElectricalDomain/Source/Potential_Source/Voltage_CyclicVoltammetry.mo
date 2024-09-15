@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source;
-model CyclicVoltammetry "Source for cyclic voltammetry"
+model Voltage_CyclicVoltammetry "Source for cyclic voltammetry"
   // Inheritance
-  extends GeneralSource;
+  extends Electrical_Source_Base;
 
   // Input parameters
   parameter Real Scanrate "in V/s";
@@ -26,4 +26,4 @@ equation
   der(v) = x*Scanrate;
 
   annotation (experiment(StopTime=4));
-end CyclicVoltammetry;
+end Voltage_CyclicVoltammetry;

@@ -1,9 +1,10 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Current_Source;
-model SwitchCurrentDensity
+model CurrentDensity_Switch
   "Source for constant current density, switched on at t"
 
   // Inheritance
-  extends eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.GeneralSource;
+  extends
+    eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Electrical_Source_Base;
 
   // Input parameters
   parameter Real tSwitch;
@@ -20,4 +21,4 @@ end when;
 
   j = is_on * jFixed;
 
-end SwitchCurrentDensity;
+end CurrentDensity_Switch;

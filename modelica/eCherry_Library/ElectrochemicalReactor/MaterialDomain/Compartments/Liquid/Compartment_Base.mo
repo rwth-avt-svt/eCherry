@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.Liquid;
-partial model CompartmentBase
+partial model Compartment_Base
   "A compartment with material hold-up and a variable number of DiffFlow connectors"
 
   // Species handling
@@ -38,4 +38,4 @@ equation
   // Temperature model
   T = model_T.T_i;
 
-end CompartmentBase;
+end Compartment_Base;

@@ -1,8 +1,8 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Power_Source;
-partial model ImposedPower
+partial model Power_Fixed
 
   // Inheritance
-  extends GeneralSource;
+  extends Electrical_Source_Base;
 
   // Input parameters
   parameter Power Pfixed "Imposed cell power";
@@ -11,4 +11,4 @@ equation
 
     W = Pfixed;
 
-end ImposedPower;
+end Power_Fixed;

@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain.ConnectionLayers;
-model ConductiveConnectionLayer
+model ConnectionLayer_Conductive
   "A layer connecting two compartments via conduction"
 
   // Species handling
@@ -30,4 +30,4 @@ equation
 
   annotation (Icon(graphics={Bitmap(extent={{-100,-102},{100,100}}, fileName=
               "modelica://eCherry_Library/../Icons/DiffusionLayer.png")}));
-end ConductiveConnectionLayer;
+end ConnectionLayer_Conductive;

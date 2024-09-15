@@ -24,7 +24,7 @@ model Electrolyte_Batch_1D_ElectrolyteMedia_Nslices
  parameter Real dXs[n_slices]= fill(X*(n_slices+1)/(n_slices^2),n_slices);
  parameter Real diff_distances[n_slices-1]=Utility.ArrayFunctions.get_diffusion_distances( dXs);
 
-    MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer diffConneL[n_slices
+  MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive diffConneL[n_slices
      - 1](
     each specRec=specRec,
     dX=diff_distances,

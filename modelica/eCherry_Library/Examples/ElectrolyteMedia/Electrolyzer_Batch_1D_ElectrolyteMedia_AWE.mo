@@ -16,12 +16,12 @@ model Electrolyzer_Batch_1D_ElectrolyteMedia_AWE
   epsi,
   55e3}/1000 "the different unit is because of the eMedia";
   // "Electrolysis:O2,H2,H+,OH-,Na+,NaOH"
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     Y=0.1,
     Z=0.1,
-    Ufixed=-2.3)     annotation (Placement(transformation(
+    Ufixed=-2.3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={12,50})));
@@ -50,14 +50,14 @@ model Electrolyzer_Batch_1D_ElectrolyteMedia_AWE
     CathodeEl=true)
     annotation (Placement(transformation(extent={{126,-34},{146,-14}})));
 
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer(
     specRec=specRec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     Y=0.1,
     Z=0.1,
     dX=1e-7) annotation (Placement(transformation(extent={{-14,8},{6,28}})));
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer1(
     specRec=specRec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,

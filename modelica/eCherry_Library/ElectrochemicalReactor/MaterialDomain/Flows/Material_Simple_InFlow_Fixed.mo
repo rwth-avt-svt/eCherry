@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows;
-model FixedConvInFlowL
+model Material_Simple_InFlow_Fixed
   "Convective inflow with fixed volume flow rate and concentrations"
 
   // Species handling
@@ -18,4 +18,4 @@ equation
   annotation (Icon(graphics={Bitmap(
           extent={{-108,-100},{106,100}},
           fileName="modelica://eCherry_Library/../Icons/Arrow.png")}));
-end FixedConvInFlowL;
+end Material_Simple_InFlow_Fixed;

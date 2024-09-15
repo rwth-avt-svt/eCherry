@@ -1,3 +1,3 @@
-ConductiveConnectionLayer
-ConvectiveConnectionLayer
-RadiativeConnectionLayer
+ConnectionLayer_Conductive
+ConnectionLayer_Convective
+ConnectionLayer_Radiative
