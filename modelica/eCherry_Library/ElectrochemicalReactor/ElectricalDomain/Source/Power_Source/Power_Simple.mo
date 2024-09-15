@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Power_Source;
-connector PowerConnector
+connector Power_Simple
 
   import Modelica.Units.SI.*;
 
@@ -22,4 +22,4 @@ connector PowerConnector
           textColor={182,82,86},
           textString="%name
 ")}));
-end PowerConnector;
+end Power_Simple;

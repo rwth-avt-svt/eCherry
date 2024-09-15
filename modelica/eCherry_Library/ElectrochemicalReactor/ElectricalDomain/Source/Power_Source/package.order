@@ -1,4 +1,4 @@
-LoadExternalData
-PowerInput
-PowerConnector
-ImposedPower
+Power_Simple
+Power_Input
+Power_ExternalData
+Power_Fixed

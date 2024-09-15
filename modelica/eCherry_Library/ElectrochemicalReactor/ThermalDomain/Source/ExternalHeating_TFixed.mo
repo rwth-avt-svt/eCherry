@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source;
-model ExternalHeating
+model ExternalHeating_TFixed
 
   // Parameters
   parameter Data.DataRecords.Thermal EBRec;
@@ -16,4 +16,4 @@ equation
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
-end ExternalHeating;
+end ExternalHeating_TFixed;

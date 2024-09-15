@@ -44,10 +44,10 @@ model Electrolyzer_Batch_0D_GL_KOH_IsobaricFlashed
         ElectrochemicalReactor.Properties.ConductivityModels.ConductivityElectrolyteGLBruggeman)
     annotation (Placement(transformation(extent={{-10,-34},{10,-14}})));
 
-  ElectrochemicalReactor.MaterialDomain.Flows.ConvectiveOutFlow
+  ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_OutFlow
     convectiveOutflow(specRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GSpec)
     annotation (Placement(transformation(extent={{-10,0},{10,20}})));
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     imposedPotential(GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GeoRec,
       Ufixed=-2.3)
     annotation (Placement(transformation(extent={{-10,40},{10,60}})));

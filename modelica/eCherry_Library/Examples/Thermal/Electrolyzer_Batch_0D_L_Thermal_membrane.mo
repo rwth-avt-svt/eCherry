@@ -1,7 +1,8 @@
 within eCherry_Library.Examples.Thermal;
 model Electrolyzer_Batch_0D_L_Thermal_membrane
   extends Modelica.Icons.Example;
-  ElectricalDomain.Source.Potential_Source.ImposedPotential Source(
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
+    Source(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     Ufixed=-2.5,
     Y=1,
@@ -52,10 +53,10 @@ model Electrolyzer_Batch_0D_L_Thermal_membrane
     c0=Data.UserInput.Example_AlkalineWaterElectrolysis.c0,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-54,-30},{-34,-10}})));
-  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating
+  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating_TFixed
     externalHeatingAnode(EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-98,-60},{-78,-40}})));
-  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating
+  eCherry_Library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating_TFixed
     externalHeatingCathode(EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{76,-60},{96,-40}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal.Electrolyte_Batch_0D_L_Thermal

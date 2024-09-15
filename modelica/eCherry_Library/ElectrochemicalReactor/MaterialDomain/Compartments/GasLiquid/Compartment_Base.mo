@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid;
-partial model CompartmentBase
+partial model Compartment_Base
   "A compartment with material hold-up and a variable number of DiffFlow connectors"
 
  // Species handling
@@ -65,4 +65,4 @@ equation
 
   annotation (Icon(graphics={Bitmap(extent={{-100,-100},{100,100}}, fileName=
               "modelica://eCherry_Library/../Icons/Electrolyte.png")}));
-end CompartmentBase;
+end Compartment_Base;

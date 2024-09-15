@@ -2,10 +2,9 @@ within eCherry_Library.Examples.Batch.Batch0D;
 model Electrolyzer_Batch_0D_GL_NonIsobaric
   extends Modelica.Icons.Example;
 
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
-                                                                Source(GeoRec=
-        Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec, Ufixed=-2.3)
-    annotation (Placement(transformation(
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
+    Source(GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
+      Ufixed=-2.3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={0,50})));

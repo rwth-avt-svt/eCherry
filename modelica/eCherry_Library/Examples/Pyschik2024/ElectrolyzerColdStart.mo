@@ -21,10 +21,9 @@ model ElectrolyzerColdStart
     kappa_const=eCherry_Library.Data.UserInput.Pyschik2024_ElectrolyzerColdStart.kappa_const)
     annotation (Placement(transformation(extent={{-10,-6},{10,14}})));
 
-  ElectricalDomain.Source.Current_Source.ConstantCurrentDensity
+  ElectrochemicalReactor.ElectricalDomain.Source.Current_Source.CurrentDensity_Fixed
     constantCurrentDensity(GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_ElectrolyzerColdStart.GeoRec,
-                                                                           jFixed=
-        9135/(2*1.631*1.631))
+      jFixed=9135/(2*1.631*1.631))
     annotation (Placement(transformation(extent={{10,62},{-10,82}})));
 equation
   connect(constantCurrentDensity.n, cellStack_1.p) annotation (Line(points={{-10,

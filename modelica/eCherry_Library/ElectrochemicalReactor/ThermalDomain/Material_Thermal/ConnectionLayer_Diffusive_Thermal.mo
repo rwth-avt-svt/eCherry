@@ -1,8 +1,8 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain.Material_Thermal;
-model DiffusiveConnectionLayer_Thermal
+model ConnectionLayer_Diffusive_Thermal
   extends
-    eCherry_Library.ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer;
-      extends EnergyBalance_base;
+    eCherry_Library.ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive;
+      extends EnergyBalance_Base;
 
   // Parameters
 
@@ -28,4 +28,4 @@ equation
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
-end DiffusiveConnectionLayer_Thermal;
+end ConnectionLayer_Diffusive_Thermal;

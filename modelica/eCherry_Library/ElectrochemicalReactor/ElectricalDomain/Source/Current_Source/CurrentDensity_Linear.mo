@@ -1,8 +1,9 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Current_Source;
-model LinearCurrentDensity "Source for current density"
+model CurrentDensity_Linear "Source for current density"
 
   // Inheritance
-  extends eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.GeneralSource;
+  extends
+    eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Electrical_Source_Base;
 
   // Input parameters
   parameter CurrentDensity j0 "Value of initial current density";
@@ -12,4 +13,4 @@ equation
 
   j = (j0 + dj*time);
 
-end LinearCurrentDensity;
+end CurrentDensity_Linear;

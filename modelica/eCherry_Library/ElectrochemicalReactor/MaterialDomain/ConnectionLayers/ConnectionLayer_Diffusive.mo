@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.ConnectionLayers;
-model DiffusiveConnectionLayer
+model ConnectionLayer_Diffusive
   "A layer connecting two compartments via diffusion"
 
   // Species handling
@@ -36,4 +36,4 @@ equation
 
   annotation (Icon(graphics={Bitmap(extent={{-100,-102},{100,100}}, fileName=
               "modelica://eCherry_Library/../Icons/DiffusionLayer.png")}));
-end DiffusiveConnectionLayer;
+end ConnectionLayer_Diffusive;

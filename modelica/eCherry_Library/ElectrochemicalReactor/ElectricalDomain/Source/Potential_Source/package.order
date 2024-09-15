@@ -1,4 +1,4 @@
-ImposedPotential
-ImposedVariablePotential
-CyclicVoltammetry
-LinearSweepVoltammetry
+Voltage_Fixed
+Voltage_Variable
+Voltage_CyclicVoltammetry
+Voltage_LinearSweepVoltammetry

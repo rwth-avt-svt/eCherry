@@ -1,7 +1,8 @@
 within eCherry_Library.Examples.Thermal;
 model Electrolyzer_Batch_0D_L_Thermal
   extends Modelica.Icons.Example;
-  ElectricalDomain.Source.Potential_Source.ImposedPotential Source(
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
+    Source(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     Ufixed=-2.5,
     Y=1,

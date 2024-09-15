@@ -3,9 +3,9 @@ model Electrolyzer_Conti_1D_L
  extends Modelica.Icons.Example;
  parameter Temperature T=300 "in K";
 
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
-      Ufixed=-2.3)   annotation (Placement(transformation(
+      Ufixed=-2.3) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-54,52})));
@@ -30,13 +30,13 @@ model Electrolyzer_Conti_1D_L
     CathodeEl=true)
     annotation (Placement(transformation(extent={{116,-96},{136,-76}})));
 
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer(
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     dX=1e-7)
     annotation (Placement(transformation(extent={{-166,-62},{-146,-42}})));
-  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.DiffusiveConnectionLayer
+  ElectrochemicalReactor.MaterialDomain.ConnectionLayers.ConnectionLayer_Diffusive
     diffusiveConnectionLayer1(
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
@@ -55,14 +55,14 @@ model Electrolyzer_Conti_1D_L
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     j(start=10000))
     annotation (Placement(transformation(extent={{-110,-86},{-90,-66}})));
-  ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL AnodeInflow(
-      specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
+  ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
+    AnodeInflow(specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
       molFlow_vec=Data.UserInput.Example_AlkalineWaterElectrolysis.c0*0.05)
     annotation (Placement(transformation(extent={{-110,-118},{-90,-98}})));
-  ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL Flow_anode(
-      specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
+  ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
+    Flow_anode(specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-110,-60},{-90,-40}})));
-  ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL env_anode(specRec=
+  ElectrochemicalReactor.MaterialDomain.Flows.Environment env_anode(specRec=
         Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-110,-34},{-90,-14}})));
   ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L Catholyte(
@@ -72,14 +72,14 @@ model Electrolyzer_Conti_1D_L
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     j(start=10000))
     annotation (Placement(transformation(extent={{-6,-86},{14,-66}})));
-  ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL AnodeInflow1(
-      specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
+  ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
+    AnodeInflow1(specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
       molFlow_vec=Data.UserInput.Example_AlkalineWaterElectrolysis.c0*0.05)
     annotation (Placement(transformation(extent={{-6,-118},{14,-98}})));
-  ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL Flow_anode1(
-      specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
+  ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
+    Flow_anode1(specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-6,-60},{14,-40}})));
-  ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL env_anode1(specRec=
+  ElectrochemicalReactor.MaterialDomain.Flows.Environment env_anode1(specRec=
         Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-6,-34},{14,-14}})));
   ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Batch_1D_L_nLayers

@@ -17,32 +17,34 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-92,-30},{-72,-10}})));
 
-  Echery_library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.FixedConvInflow_L_Thermal
+  Echery_library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.Material_Simple_InFlow_Thermal
     AnodeInflow(
     specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
+
     molFlow_vec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_an
         *0.0001,
     EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
 
-  Echery_library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.FixedConvInflow_L_Thermal
+  Echery_library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.Material_Simple_InFlow_Thermal
     CathodeInflow(
     specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
+
     molFlow_vec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_cat
         *0.0001,
     EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
 
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_anode(specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{-50,-4},{-30,16}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_anode(specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{-50,22},{-30,42}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_cathode(specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{30,-6},{50,14}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_cathode(specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec)
     annotation (Placement(transformation(extent={{30,22},{50,42}})));
   Echery_library.ElectrochemicalReactor.Electrolytes.Thermal.Electrolyte_Conti_0D_L_Thermal
@@ -94,17 +96,17 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{72,-30},{92,-10}})));
 
-  Echery_library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating
+  Echery_library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating_TFixed
     externalHeatingAnode(EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-102,-60},{-82,-40}})));
-  Echery_library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating
+  Echery_library.ElectrochemicalReactor.ThermalDomain.Source.ExternalHeating_TFixed
     externalHeatingCathode(EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{80,-60},{100,-40}})));
     Real FaradaicEffH2;
     Real FaradaicEffCO2;
-  Echery_library.ElectrochemicalReactor.ElectricalDomain.Source.Current_Source.ConstantCurrentDensity
+  Echery_library.ElectrochemicalReactor.ElectricalDomain.Source.Current_Source.CurrentDensity_Fixed
     constantCurrentDensity(GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
-      jFixed=50)   annotation (Placement(transformation(
+      jFixed=50) annotation (Placement(transformation(
         extent={{10,10},{-10,-10}},
         rotation=0,
         origin={-28,56})));

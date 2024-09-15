@@ -1,8 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source;
-model LinearSweepVoltammetry
-  "Source for linear sweep voltammetry"
+model Voltage_LinearSweepVoltammetry "Source for linear sweep voltammetry"
   // Inheritance
-  extends GeneralSource;
+  extends Electrical_Source_Base;
 
   // Input parameters
   parameter Real tAux "in s";
@@ -16,4 +15,4 @@ equation
   v = t/tAux*Uaux + Ubase;
 
   annotation (experiment(StopTime=4));
-end LinearSweepVoltammetry;
+end Voltage_LinearSweepVoltammetry;

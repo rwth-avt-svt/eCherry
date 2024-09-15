@@ -4,7 +4,7 @@ model Electrolyzer_Conti_0D_L
  import Echery_library =
          eCherry_Library;
 
-  Echery_library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  Echery_library.ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     Source(GeoRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
       Ufixed=-2.5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -34,12 +34,12 @@ model Electrolyzer_Conti_0D_L
     CathodeEl=true)
     annotation (Placement(transformation(extent={{70,-30},{90,-10}})));
 
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     AnodeInflow(specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
       molFlow_vec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.c0
         *0.005)
     annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed
     CathodeInflow(specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
       molFlow_vec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.c0
         *0.005)
@@ -52,16 +52,16 @@ model Electrolyzer_Conti_0D_L
     kappa=38)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
 
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_anode(specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-50,-4},{-30,16}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_anode(specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-50,22},{-30,42}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.ConnectingFlowL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_ConnectingFlow
     Flow_Cathode(specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{30,-6},{50,14}})));
-  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.EnvironmentL
+  Echery_library.ElectrochemicalReactor.MaterialDomain.Flows.Environment
     env_cathode(specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{30,22},{50,42}})));
   Echery_library.ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L

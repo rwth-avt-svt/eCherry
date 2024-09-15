@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ElectricalDomain.Source;
-partial model GeneralSource
+partial model Electrical_Source_Base
   "Both for imposed voltage and imposed current density"
 
   parameter Data.DataRecords.Geometry GeoRec;
@@ -20,4 +20,4 @@ equation
   i = j * Y * Z;
   W = v * i;
 
-end GeneralSource;
+end Electrical_Source_Base;

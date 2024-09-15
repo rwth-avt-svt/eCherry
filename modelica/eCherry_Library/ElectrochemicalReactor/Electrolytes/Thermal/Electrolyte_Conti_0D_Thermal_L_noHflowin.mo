@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal;
 model Electrolyte_Conti_0D_Thermal_L_noHflowin
   extends Liquid.Electrolyte_Conti_0D_L;
-  extends ThermalDomain.EnergyBalance_base;
+  extends ThermalDomain.EnergyBalance_Base;
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                  "Temperature is variale for energy balance";

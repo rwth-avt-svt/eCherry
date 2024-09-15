@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain.ConnectionLayers;
-model RadiativeConnectionLayer
+model ConnectionLayer_Radiative
   "A layer connecting two compartments via radiation"
   parameter Data.DataRecords.Thermal EBRec;
   parameter Data.DataRecords.Geometry GeoRec;
@@ -26,4 +26,4 @@ equation
 
   annotation (Icon(graphics={Bitmap(extent={{-100,-102},{100,100}}, fileName=
               "modelica://eCherry_Library/../Icons/DiffusionLayer.png")}));
-end RadiativeConnectionLayer;
+end ConnectionLayer_Radiative;

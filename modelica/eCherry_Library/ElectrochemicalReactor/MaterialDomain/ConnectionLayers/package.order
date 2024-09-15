@@ -1,2 +1,2 @@
-ConvectiveConnectionLayer
-DiffusiveConnectionLayer
+ConnectionLayer_Convective
+ConnectionLayer_Diffusive

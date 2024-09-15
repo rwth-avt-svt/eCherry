@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.ThermalDomain.Material_Thermal;
-model FixedConvInflow_L_Thermal
+model Material_Simple_InFlow_Thermal
   extends
-    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.FixedConvInFlowL;
+    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows.Material_Simple_InFlow_Fixed;
 
   // Parameters
   parameter Data.DataRecords.Thermal EBRec;
@@ -20,4 +20,4 @@ equation
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
-end FixedConvInflow_L_Thermal;
+end Material_Simple_InFlow_Thermal;

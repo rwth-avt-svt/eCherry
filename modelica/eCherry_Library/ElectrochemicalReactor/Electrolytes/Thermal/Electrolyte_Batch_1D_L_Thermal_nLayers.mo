@@ -24,7 +24,7 @@ model Electrolyte_Batch_1D_L_Thermal_nLayers
   Heat Qhousing_total "Sum of het dissipated from housing of all discretized slices";
 
   // Models
-  ThermalDomain.Material_Thermal.DiffusiveConnectionLayer_Thermal diffConneL[
+  ThermalDomain.Material_Thermal.ConnectionLayer_Diffusive_Thermal diffConneL[
     n_slices - 1](
     each specRec=specRec,
     each GeoRec=GeoRec,

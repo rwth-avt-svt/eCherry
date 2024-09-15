@@ -53,7 +53,7 @@ model Electrolyzer_Batch_0D_GL_IsobaricFlashedEnvironment
     mol_vec_G_0={1e-60,1e-60},
     P=100000,
     T=298.15) annotation (Placement(transformation(extent={{-10,-2},{10,18}})));
-  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.ImposedPotential
+  ElectrochemicalReactor.ElectricalDomain.Source.Potential_Source.Voltage_Fixed
     imposedPotential(GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
       Ufixed=-2.3)
     annotation (Placement(transformation(extent={{-10,40},{10,60}})));

@@ -2,7 +2,7 @@ within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiq
 model Compartment_Batch_0D_GL_IsobaricFlashed
   "gas phase is leaving the 0D compartment"
   extends
-    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.CompartmentBase;
+    eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.Compartment_Base;
 
   constant Real R = 8.314 "ideal gas constant J/molK";
   parameter Pressure P;

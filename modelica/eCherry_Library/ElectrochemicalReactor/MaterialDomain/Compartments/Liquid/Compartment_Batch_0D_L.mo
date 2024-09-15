@@ -4,7 +4,7 @@ model Compartment_Batch_0D_L
 
   // Input parameters
 
-  extends CompartmentBase( V_geo=X*Y*Z);
+  extends Compartment_Base(V_geo=X*Y*Z);
   parameter Integer aux=0;
 
   // Variables
