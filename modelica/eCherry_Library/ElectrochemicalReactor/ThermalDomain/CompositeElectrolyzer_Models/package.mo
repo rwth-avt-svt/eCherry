@@ -1,0 +1,5 @@
+within eCherry_Library.ElectrochemicalReactor.ThermalDomain;
+package CompositeElectrolyzer_Models
+
+
+end CompositeElectrolyzer_Models;

@@ -3,4 +3,5 @@ Species
 SpeciesRecord
 GaseousSpecies
 DissolvedSpecies
+SolidSpecies
 LiquidSpecies

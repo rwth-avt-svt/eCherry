@@ -15,7 +15,15 @@ model Compartment_Conti_0D_GL
   AmountOfSubstance mol_vec_G[GSpec.nSpec];
   AmountOfSubstance mol_vec_L[DSpec.nSpec+LSpec.nSpec];
   MolarFlowRate molFlow_tot_out "molar flow leaving the compartment";
-  Properties.DensityModels.DensityWater calc_rho_W(T=T);
+  replaceable model DensityModel =
+      Properties.DensityModels.DensityWaterTdependent(T=T)
+      annotation(choices(
+    choice=Properties.DensityModels.DensityConstant
+    "Constant density",
+    choice=Properties.DensityModels.DensityWaterTdependent
+    "Temperature dependent water density"));
+  DensityModel model_rho_w;
+  inner Density rho_w;
 
 // Connectors
   Connectors.Material_Liquid leftFlow(specRec=specRec) annotation (Placement(
@@ -39,6 +47,7 @@ initial equation
   //mol_tot = mol_tot_0;
 
 equation
+  rho_w = model_rho_w.rho_i;
 
   // Mole balance
   for k in 1:AllSpec-1 loop
@@ -57,7 +66,7 @@ equation
   der(mol_tot) = sum(inFlow.molFlow_vec[k] + rightFlow.molFlow_vec[k] + leftFlow.molFlow_vec[k] for k in 1:AllSpec) + molFlow_tot_out;
 
   //approximate liquid volume from mass and density of pure water
-  V_L = (mol_vec[end]*specRec.species[end].M)/calc_rho_W.rho_w;
+  V_L = (mol_vec[end]*specRec.species[end].M)/rho_w;
 
   //calculate mol_vec_G from mol_vec
   mol_vec_G = mol_vec[1:GSpec.nSpec];

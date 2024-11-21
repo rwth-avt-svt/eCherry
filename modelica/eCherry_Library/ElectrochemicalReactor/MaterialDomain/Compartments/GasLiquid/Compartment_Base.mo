@@ -47,8 +47,8 @@ partial model Compartment_Base
 
   // Connectors
   Connectors.Material_Liquid leftFlow(specRec=specRec) annotation (Placement(
-        transformation(extent={{-108,50},{-88,70}}), iconTransformation(extent=
-            {{-128,30},{-88,70}})));
+        transformation(extent={{-110,50},{-90,70}}), iconTransformation(extent={{-130,30},
+            {-90,70}})));
   Connectors.Material_Liquid rightFlow(specRec=specRec) annotation (Placement(
         transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{
             80,40},{120,80}})));

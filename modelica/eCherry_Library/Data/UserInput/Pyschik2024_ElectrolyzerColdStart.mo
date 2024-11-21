@@ -1,20 +1,19 @@
 within eCherry_Library.Data.UserInput;
 record Pyschik2024_ElectrolyzerColdStart
-//Species: define the required speices for an Alkaline Water Electrolyser with KOH solution here:
-  constant Data.DataRecords.Species.SpeciesRecord AWEKOHspec(species={Data.DataRecords.Species.GaseousSpecies.O2,
+   constant Data.DataRecords.Species.SpeciesRecord AWEKOHspec(species={Data.DataRecords.Species.GaseousSpecies.O2,
         Data.DataRecords.Species.GaseousSpecies.H2,Data.DataRecords.Species.DissolvedSpecies.Hp,
         Data.DataRecords.Species.DissolvedSpecies.OHm,Data.DataRecords.Species.DissolvedSpecies.Kp,
         Data.DataRecords.Species.LiquidSpecies.H2O});
 
   //Reactions: define the reactions for an Alkaline Water Electrolyser here:
-  constant Data.DataRecords.ElecReaction.Reaction HERdummy=Data.DataRecords.ElecReaction.List_Of_Reactions.HERdummy_Sakas2022;
-  constant Data.DataRecords.ElecReaction.Reaction OERdummy=Data.DataRecords.ElecReaction.List_Of_Reactions.OERdummy_Sakas2022;
+  constant Data.DataRecords.ElecReaction.Reaction HERdummy=Data.DataRecords.ElecReaction.List_Of_Reactions.HERdummy_ColdStart;
+  constant Data.DataRecords.ElecReaction.Reaction OERdummy=Data.DataRecords.ElecReaction.List_Of_Reactions.OERdummy_ColdStart;
 
   //Geometry: define the geometry of the reactor here:
   constant Data.DataRecords.Geometry GeoRec(
     X=0.00475,
     Y=1.631,
-    X_membrane=0.1,
+    X_membrane=0.0005,
     Z=1.631,
     cond0=1,
     dX=1e-6);
@@ -29,9 +28,8 @@ record Pyschik2024_ElectrolyzerColdStart
     constant Modelica.Units.SI.Concentration c0[AWEKOHspec.nSpec]={0,1.45e-12,  2e-4, 13300, 13300,53e3};
     constant Modelica.Units.SI.Pressure Pi[AWEKOHspec.nSpec]={1600000,1600000,1600000,1600000,1600000,1600000};
 
-    //constant MolarFlowRate[AWEKOHspec.nSpec] molFlow_vec_inFlow = {0,1.45e-12,  1e-4, 6000, 6000,55e3}/100;
-    constant MolarFlowRate[AWEKOHspec.nSpec] molFlow_vec_inFlow = {1e-10,1e-10,1e-5,78.7,78,310}/(163*2);
-    //constant MolarFlowRate[AWEKOHspec.nSpec] molFlow_vec_inFlow = {1e-10,1e-10,1e-5,145.277,145.277,134.438}/(163*2);
+    constant MolarFlowRate[AWEKOHspec.nSpec] molFlow_vec_inFlow = {1e-10,1e-10,1e-5,77,78,310}/(163*2);
+    //constant MolarFlowRate[AWEKOHspec.nSpec] molFlow_vec_inFlow = {1e-10,1e-10,1e-5,78.7,0,390}/(163*2);
     constant Conductivity kappa_const = 1000;
 
   constant
@@ -59,6 +57,7 @@ record Pyschik2024_ElectrolyzerColdStart
     alpha_membrane_catholyte=100000,
     T0externalHeating=333.15,
     T0convectiveInflow=343.15,
+    TinflowMax=343.15,
     alpha_electrolyte_electrolyte=1);
 
 end Pyschik2024_ElectrolyzerColdStart;

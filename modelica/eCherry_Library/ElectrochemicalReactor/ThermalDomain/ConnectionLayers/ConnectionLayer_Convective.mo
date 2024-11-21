@@ -2,20 +2,30 @@ within eCherry_Library.ElectrochemicalReactor.ThermalDomain.ConnectionLayers;
 model ConnectionLayer_Convective
   "A layer connecting two compartments via convection"
 
-  parameter ThermalConductance C;
+  parameter Data.DataRecords.Geometry GeoRec;
+  parameter CoefficientOfHeatTransfer alpha=0;
+  parameter ThermalConductance C=alpha*A;
+  parameter Length Y=GeoRec.Y "length of the connection layer";
+  parameter Length Z=GeoRec.Y "height of the connection layer";
+  parameter Area A = Y*Z;
+  parameter Boolean useConvection = true;
 
   // Connectors
-  Thermal leftFlow annotation (Placement(transformation(extent={{-110,50},{-90,
+  Thermal leftHeatFlow annotation (Placement(transformation(extent={{-110,50},{-90,
             70}}), iconTransformation(extent={{-120,40},{-88,70}})));
-  Thermal rightFlow annotation (Placement(transformation(extent={{90,50},{110,
+  Thermal rightHeatFlow annotation (Placement(transformation(extent={{90,50},{110,
             70}}), iconTransformation(extent={{80,40},{120,80}})));
 
 equation
 
     // No energy holdup in connection layer; holdup is only in adjacent compartments.
-    leftFlow.QFlow_tot + rightFlow.QFlow_tot = 0;
+    leftHeatFlow.Q_flow + rightHeatFlow.Q_flow = 0;
     //heat flow due to convection
-    leftFlow.QFlow_tot = C*(leftFlow.T-rightFlow.T);
+    if useConvection then
+      leftHeatFlow.Q_flow = C*(leftHeatFlow.T-rightHeatFlow.T);
+    else
+      leftHeatFlow.Q_flow = 0;
+    end if;
 
   annotation (Icon(graphics={Bitmap(extent={{-100,-102},{100,100}}, fileName=
               "modelica://eCherry_Library/../Icons/DiffusionLayer.png")}));

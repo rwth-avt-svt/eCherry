@@ -40,29 +40,39 @@ model Electrolyzer_Conti_0D_L_PV_flex
     annotation (Placement(transformation(extent={{-16,56},{4,76}})));
   parameter PhotoVoltaics.Records.SHARP_NU_S5_E3E moduleData annotation (
     Placement(visible = true, transformation(origin={154,90},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.CondRec,
+
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
+
     reac={eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.OERdummy},
+
     T(displayUnit="K"),
     Pi(displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-82,-20},{-62,0}})));
 
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.CondRec,
+
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
+
     reac={eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.HERdummy},
+
     T(displayUnit="K"),
     Pi(displayUnit="bar"),
     CathodeEl=true)
@@ -78,13 +88,16 @@ model Electrolyzer_Conti_0D_L_PV_flex
       molFlow_vec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.c0
         *0.00000833333)
     annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-  eCherry_Library.ElectrochemicalReactor.Separators.DiaphragmHydroxide
+  eCherry_Library.ElectrochemicalReactor.Separators.Diaphragm_Hydroxide
     Diaphragm(
     Y=Y,
     Z=Z,
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
+
     GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.CondRec,
+
     X=5e-4,
     kappa=27.1) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
 

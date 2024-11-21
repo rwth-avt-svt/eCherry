@@ -5,7 +5,7 @@ model Electrolyzer_Batch_0D_GL_KOH_IsobaricFlashed
 
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  ElectrochemicalReactor.Electrodes.Electrode Anode(
+  ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.AWEKOHspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GeoRec,
@@ -15,7 +15,7 @@ model Electrolyzer_Batch_0D_GL_KOH_IsobaricFlashed
     Pi(displayUnit="bar"))
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
 
-  ElectrochemicalReactor.Electrodes.Electrode Cathode(
+  ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.AWEKOHspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GeoRec,

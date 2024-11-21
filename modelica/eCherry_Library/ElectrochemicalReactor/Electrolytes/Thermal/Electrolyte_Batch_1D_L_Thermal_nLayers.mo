@@ -30,8 +30,7 @@ model Electrolyte_Batch_1D_L_Thermal_nLayers
     each GeoRec=GeoRec,
     each Y=Y,
     each Z=Z,
-    dX=diff_distances,
-    each EBRec=EBRec);         //
+    dX=diff_distances);         //
 
   Electrolyte_Batch_0D_L_Thermal slices[n_slices](
     X=dXs,

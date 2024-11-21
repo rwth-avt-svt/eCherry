@@ -4,12 +4,16 @@ model MultipleElectrochemicalReactions
 
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CondRec,
+
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
+
     reac={eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.OER},
+
     Pi(displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-92,-30},{-72,-10}})));
@@ -65,13 +69,18 @@ model MultipleElectrochemicalReactions
     kappa=9.3)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
 
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar cathode(
     T0=566.3,
     P=100000,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CondRec,
+
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-    reac={eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.HER,eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.COERAg},
+
+    reac={eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.HER,
+        eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.COERAg},
+
     CathodeEl=true)
     annotation (Placement(transformation(extent={{72,-30},{92,-10}})));
 
@@ -97,7 +106,7 @@ equation
   connect(Anode.n, Anolyte.p)
     annotation (Line(points={{-72,-20},{-50,-20}}, color={0,0,255}));
   connect(Anolyte.leftFlow, Anode.flowFromElectrolyte) annotation (Line(points={{-50,-14},
-          {-66,-14},{-66,-2},{-82,-2},{-82,-10}},            color={0,0,0}));
+          {-66,-14},{-66,-2},{-92,-2},{-92,-14}},            color={0,0,0}));
   connect(Anolyte.inFlow, AnodeInflow.convFlow)
     annotation (Line(points={{-40,-30},{-40,-40}}, color={0,0,0}));
   connect(Catholyte.inFlow, CathodeInflow.convFlow)
@@ -113,7 +122,7 @@ equation
   connect(membrane.p, Anolyte.n) annotation (Line(points={{-10,-20},{-30,-20}},
                                          color={0,0,255}));
   connect(Catholyte.rightFlow, cathode.flowFromElectrolyte) annotation (Line(
-        points={{50,-14},{61.1,-14},{61.1,-10},{82,-10}},       color={0,0,0}));
+        points={{50,-14},{61.1,-14},{61.1,-14},{72,-14}},       color={0,0,0}));
   connect(Catholyte.n, cathode.p) annotation (Line(points={{50,-20},{72,-20}},
                                      color={0,0,255}));
   connect(cathode.n, Ground.p) annotation (Line(points={{92,-20},{96,-20},{96,

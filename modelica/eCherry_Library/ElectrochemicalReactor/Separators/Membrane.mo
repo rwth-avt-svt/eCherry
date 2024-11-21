@@ -1,6 +1,6 @@
 within eCherry_Library.ElectrochemicalReactor.Separators;
 model Membrane
-  extends MembraneBase;
+  extends Separator_Base;
 
 equation
 

@@ -4,6 +4,17 @@ model HeatExchangeEnvironment
     Heat Qhousing "Sum of heat dissipating from the housing";
 //     HeatFlowRate QFlow_housing_convection;
 //     HeatFlowRate QFlow_housing_radiation;
+
+ input Temperature T;
+
+ inner parameter Data.DataRecords.Geometry GeoRec;
+ inner parameter Data.DataRecords.Conditions CondRec;
+ inner parameter Length X=GeoRec.X "along discretization direction";
+ inner parameter Length Y=GeoRec.Y "perpendicular to discretization direction";
+ inner parameter Length Z=GeoRec.Z "perpendicular to discretization direction";
+ inner parameter Data.DataRecords.Thermal EBRec;
+
+protected
   inner Radiation RadModel(
     T=T,
     EBRec=EBRec,
@@ -14,15 +25,6 @@ model HeatExchangeEnvironment
     EBRec=EBRec,
     GeoRec=GeoRec,
     CondRec=CondRec);
-
- input Temperature T;
-
- inner parameter Data.DataRecords.Geometry GeoRec;
- inner parameter Data.DataRecords.Conditions CondRec;
- inner parameter Length X=GeoRec.X "along discretization direction";
- inner parameter Length Y=GeoRec.Y "perpendicular to discretization direction";
- inner parameter Length Z=GeoRec.Z "perpendicular to discretization direction";
- inner parameter Data.DataRecords.Thermal EBRec;
 
 initial equation
 Qhousing=0;

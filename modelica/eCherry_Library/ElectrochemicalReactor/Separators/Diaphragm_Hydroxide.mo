@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Separators;
-model DiaphragmHydroxide
+model Diaphragm_Hydroxide
   "Model of proton exchange membrane with instant proton transport"
-  extends MembraneBase;
+  extends Separator_Base;
 
 equation
 
@@ -15,4 +15,4 @@ equation
     end if;
   end for;
 
-end DiaphragmHydroxide;
+end Diaphragm_Hydroxide;

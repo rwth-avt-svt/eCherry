@@ -14,14 +14,8 @@ equation
   WFlow=abs(v*i);
 
   // Connectors for heat flow
-  leftHeatFlow.Q_flow =ThermalDomain.Thermal_Functions.GeneralHeatTransferRate(
-    C=EBRec.alpha_membrane_anolyte*Y*Z,
-    T1=leftHeatFlow.T,
-    T2=T);
-  rightHeatFlow.Q_flow =ThermalDomain.Thermal_Functions.GeneralHeatTransferRate(
-    C=EBRec.alpha_membrane_catholyte*Y*Z,
-    T1=rightHeatFlow.T,
-    T2=T);
+  rightHeatFlow.T = T;
+  leftHeatFlow.T = T;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));

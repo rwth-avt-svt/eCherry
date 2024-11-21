@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows;
-model Material_Liquid_InFlow_Fixed
+model Material_L_InFlow_Fixed
   "Diffusive inflow with fixed molar flow rates and concentrations"
 
   // Species handling
@@ -24,4 +24,4 @@ equation
   annotation (Icon(graphics={Bitmap(
           extent={{-108,-100},{106,100}},
           fileName="modelica://eCherry_Library/../Icons/Arrow.png")}));
-end Material_Liquid_InFlow_Fixed;
+end Material_L_InFlow_Fixed;

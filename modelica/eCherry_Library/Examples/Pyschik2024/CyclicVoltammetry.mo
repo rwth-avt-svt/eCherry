@@ -6,10 +6,11 @@ model CyclicVoltammetry
 
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     T0(displayUnit="K"),
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     GeoRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.GeoRec,
     CondRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.CondRec,
     specRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.FRRspec,

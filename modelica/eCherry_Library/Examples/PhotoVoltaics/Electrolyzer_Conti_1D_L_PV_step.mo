@@ -9,7 +9,7 @@ model Electrolyzer_Conti_1D_L_PV_step "AWE Electrolyzer + PV + Step-profile irra
 
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
@@ -19,7 +19,7 @@ model Electrolyzer_Conti_1D_L_PV_step "AWE Electrolyzer + PV + Step-profile irra
     Pi(displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-246,-90},{-226,-70}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
@@ -41,7 +41,7 @@ model Electrolyzer_Conti_1D_L_PV_step "AWE Electrolyzer + PV + Step-profile irra
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     dX=1e-7) annotation (Placement(transformation(extent={{46,-64},{66,-44}})));
-  ElectrochemicalReactor.Separators.DiaphragmHydroxide Diaphragm(
+  ElectrochemicalReactor.Separators.Diaphragm_Hydroxide Diaphragm(
     Y=Y,
     Z=Z,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,

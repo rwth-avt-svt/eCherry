@@ -9,14 +9,14 @@ record Example_AlkalineWaterElectrolysis
         eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.OHm,
         eCherry_Library.Data.DataRecords.Species.LiquidSpecies.H2O});
 
-  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord GSpec(species
-      ={eCherry_Library.Data.DataRecords.Species.GaseousSpecies.O2,
+  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord GSpec(species=
+       {eCherry_Library.Data.DataRecords.Species.GaseousSpecies.O2,
         eCherry_Library.Data.DataRecords.Species.GaseousSpecies.H2});
-  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord DSpec(species
-      ={eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.Hp,
+  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord DSpec(species=
+       {eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.Hp,
         eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.OHm});
-  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord LSpec(species
-      ={eCherry_Library.Data.DataRecords.Species.LiquidSpecies.H2O});
+  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord LSpec(species=
+       {eCherry_Library.Data.DataRecords.Species.LiquidSpecies.H2O});
 
 
   //Reactions: define the reactions for an Alkaline Water Electrolyser here:
@@ -27,8 +27,8 @@ record Example_AlkalineWaterElectrolysis
   constant DataRecords.Geometry GeoRec(
     X=0.01,
     X_membrane=0.0005,
-    Y=0.05,
-    Z=0.05,
+    Y=1,
+    Z=1,
     cond0=1,
     dX=1e-6);
     constant Length X_difflayer=1e-6;
@@ -67,6 +67,7 @@ record Example_AlkalineWaterElectrolysis
     alpha_membrane_catholyte=200,
     T0externalHeating=333.15,
     T0convectiveInflow=298.15,
+    TinflowMax=298.15,
     Tenvironment_housing=333.15,
     alpha_electrolyte_electrolyte=1);
     //QFlow_shunt=0,

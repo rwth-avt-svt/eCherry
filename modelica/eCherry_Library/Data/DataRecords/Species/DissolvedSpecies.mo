@@ -17,7 +17,7 @@ record DissolvedSpecies "package for dissolved species"
     M=17.00734e-3,
     charge=-1,
     D=5.27*10^(-9),
-    h0=229756,
+    h0=229.756,
     state=State.DissolvedInLiquid);
   constant Species K2SO4(
     name="K2SO4",
@@ -167,6 +167,12 @@ record DissolvedSpecies "package for dissolved species"
     M=186.04e-3,
     charge=1,
     D=2.9*10^(-9),
+    state=State.DissolvedInLiquid);
+   constant Species NH3(
+    name="Ammonia",
+    M=17.031e-3,
+    charge=0,
+    D=ElectrochemicalReactor.Utility.Common.Ddummy,
     state=State.DissolvedInLiquid);
 
 //EMPTY TEMPLATE

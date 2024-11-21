@@ -12,13 +12,14 @@ model ActivationOverpotential
   input Temperature T;
   parameter Length Y;
   parameter Length Z;
+  parameter Boolean CathodeEl "= true, if cathode in electrolysis mode (=anode in galvanic mode), else false";
 
   // Variables
   Voltage eta   "Real overpotential";
   Voltage etaRef "Overpotential with respect to current density standard conditions";
   CurrentDensity j;
   eCherry_Library.ElectrochemicalReactor.Properties.Activity[specRec.nSpec] a;
-  Concentration c[specRec.nSpec] "in mol/m^3; to be specified in client model";
+  input Concentration c[specRec.nSpec] "in mol/m^3; to be specified in client model"; // input leai01
   input Pressure[specRec.nSpec] Pi "partial pressure in pascal";
 
 equation

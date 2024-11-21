@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.MaterialDomain.Flows;
-model Material_Liquid_InFlow_FixedConcentrations
+model Material_L_InFlow_FixedConcentrations
   "Auxiliary model prescribing fixed concentrations for Material_Liquid"
 
   // Species handling
@@ -22,4 +22,4 @@ equation
   annotation (Icon(graphics={Bitmap(
           extent={{-108,-100},{106,100}},
           fileName="modelica://eCherry_Library/../Icons/Arrow.png")}));
-end Material_Liquid_InFlow_FixedConcentrations;
+end Material_L_InFlow_FixedConcentrations;

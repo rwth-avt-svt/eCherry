@@ -13,13 +13,14 @@ model EquilibriumPotentialSpecRec
   // Input parameters
   parameter eCherry_Library.Data.DataRecords.ElecReaction.Reaction reac;
   input Temperature T;
-  parameter Pressure[GSpec.nSpec] Pi "partial pressure in pascal";
+  input Pressure[GSpec.nSpec] Pi "partial pressure in pascal";
+  parameter Boolean CathodeEl "= true, if cathode in electrolysis mode (=anode in galvanic mode), else false";
 
   // Variables
   Voltage Eeq;
   eCherry_Library.ElectrochemicalReactor.Properties.Activity[specRec.nSpec] a
     "in mol/l";
-  Concentration c[specRec.nSpec] "in mol/m^3; to be specified in client model";
+  input Concentration c[specRec.nSpec] "in mol/m^3; to be specified in client model";
 
 equation
 

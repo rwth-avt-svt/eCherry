@@ -12,10 +12,11 @@ model Electrolyzer_Batch_0D_L
         origin={0,50})));
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
@@ -26,12 +27,13 @@ model Electrolyzer_Batch_0D_L
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
 
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
     Y=1,

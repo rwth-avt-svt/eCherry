@@ -1,5 +1,5 @@
 within eCherry_Library.ElectrochemicalReactor.Separators;
-partial model MembraneBase
+partial model Separator_Base
   extends ElectricalDomain.Ohmic_Overpotentials.OhmicOverpotential(X=GeoRec.X_membrane);
 
   // Temperature model
@@ -29,8 +29,8 @@ partial model MembraneBase
       Placement(transformation(extent={{-110,50},{-90,70}}), iconTransformation(
           extent={{-120,40},{-80,80}})));
   MaterialDomain.Connectors.Material_Liquid catCon(specRec=specRec) annotation (
-     Placement(transformation(extent={{100,60},{120,80}}), iconTransformation(
-          extent={{80,40},{120,80}})));
+     Placement(transformation(extent={{90,50},{110,70}}),  iconTransformation(
+          extent={{70,30},{110,70}})));
 
 initial equation
   T=T0;
@@ -48,4 +48,4 @@ equation
               Icon(graphics={Bitmap(
           extent={{-100,-100},{100,100}},fileName=
               "modelica://eCherry_Library/../Icons/Membrane.png")}));
-end MembraneBase;
+end Separator_Base;

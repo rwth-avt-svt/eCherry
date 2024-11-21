@@ -6,7 +6,15 @@ model Compartment_Conti_0D_L
 
   extends Compartment_Base(V_geo=X*Y*Z);
   parameter Integer aux=0;
-  Properties.DensityModels.DensityWater calc_rho_W(T=T);
+  replaceable model DensityModel =
+      Properties.DensityModels.DensityWaterTdependent(T=T)
+      annotation(choices(
+    choice=Properties.DensityModels.DensityConstant
+    "Constant density",
+    choice=Properties.DensityModels.DensityWaterTdependent
+    "Temperature dependent water density"));
+  DensityModel model_rho_w;
+  inner Density rho_w;
 
   // Variables
   AmountOfSubstance mol_tot; // total amount of species in the compartment
@@ -32,8 +40,9 @@ initial equation
   end for;
 
 equation
+  rho_w = model_rho_w.rho_i;
   c=mol_vec/V_geo;
-  V_geo=mol_vec[end]*specRec.species[end].M/calc_rho_W.rho_w; // use just water
+  V_geo=mol_vec[end]*specRec.species[end].M/rho_w; // use just water
 
   for k in 1:specRec.nSpec-1 loop
     // Mole balance for species k

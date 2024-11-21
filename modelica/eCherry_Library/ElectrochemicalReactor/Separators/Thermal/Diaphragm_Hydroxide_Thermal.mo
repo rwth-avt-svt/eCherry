@@ -1,6 +1,6 @@
 within eCherry_Library.ElectrochemicalReactor.Separators.Thermal;
-model DiaphragmHydroxide_Thermal
-  extends DiaphragmHydroxide;
+model Diaphragm_Hydroxide_Thermal
+  extends Diaphragm_Hydroxide;
   extends ThermalDomain.EnergyBalance_Base;
 
   redeclare model TemperatureModel =
@@ -23,15 +23,9 @@ equation
   QFlow=0;
 
   // Connectors for heat flow
-  leftHeatFlow.Q_flow =ThermalDomain.Thermal_Functions.GeneralHeatTransferRate(
-    C=Cthermal_anolyte,
-    T1=leftHeatFlow.T,
-    T2=T);
-  rightHeatFlow.Q_flow =ThermalDomain.Thermal_Functions.GeneralHeatTransferRate(
-    C=Cthermal_catholyte,
-    T1=rightHeatFlow.T,
-    T2=T);
+  rightHeatFlow.T = T;
+  leftHeatFlow.T = T;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
-end DiaphragmHydroxide_Thermal;
+end Diaphragm_Hydroxide_Thermal;

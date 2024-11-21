@@ -1,4 +1,5 @@
-ElectrodeBase
-Electrode
+Electrode_Base
+Electrode_Planar
+Electrode_GasDiffusion
 Electrode_Thermal
 Electrochemistry

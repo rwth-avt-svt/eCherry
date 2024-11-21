@@ -3,4 +3,4 @@ type Eeq0Tmodel = enumeration(
     Constant,
     ReactionEntropy,
     WaterElectrolysisEmpiric,
-    WaterElectrolysisEmpiric_Sakas2022);
+    WaterElectrolysisEmpiricColdStart);

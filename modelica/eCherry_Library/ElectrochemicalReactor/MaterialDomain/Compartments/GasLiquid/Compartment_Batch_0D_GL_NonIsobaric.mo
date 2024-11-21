@@ -11,7 +11,15 @@ model Compartment_Batch_0D_GL_NonIsobaric
   Mass mi[AllSpec];
   AmountOfSubstance mol_tot;
   Pressure P;
-  Properties.DensityModels.DensityWater calc_rho_W(T=T);
+  replaceable model DensityModel =
+      Properties.DensityModels.DensityWaterTdependent(T=T)
+      annotation(choices(
+    choice=Properties.DensityModels.DensityConstant
+    "Constant density",
+    choice=Properties.DensityModels.DensityWaterTdependent
+    "Temperature dependent water density"));
+  DensityModel model_rho_w;
+  inner Density rho_w;
   MoleFraction yi[GSpec.nSpec];//mole fractions in V_G und V_env
   AmountOfSubstance mol_vec_G[GSpec.nSpec];//molar amount of gaseous species
   // Connectors
@@ -28,6 +36,7 @@ initial equation
   end for;
   mol_tot = mol_tot_0;
 equation
+  rho_w = model_rho_w.rho_i;
 
   //calculate mol_vec[k] for n-1 species
   for k in 1:(AllSpec-1) loop
@@ -50,7 +59,7 @@ equation
    1 = sum(yi[k] for k in 1:GSpec.nSpec);
 
   //approximate liquid volume from mass and density of pure water
-  V_L = mi[specRec.nSpec]/calc_rho_W.rho_w;
+  V_L = mi[specRec.nSpec]/rho_w;
 
   //calculate pressure from ideal gas law
   P = mol_tot_G*R*T/V_G;

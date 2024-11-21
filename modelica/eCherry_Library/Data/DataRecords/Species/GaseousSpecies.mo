@@ -35,6 +35,7 @@ record GaseousSpecies "package for gaseous species"
     M=17.031e-3,
     D=ElectrochemicalReactor.Utility.Common.Ddummy,
     state=State.Gas);
+
   // Gases
 /*constant Species H2(name="Hydrogen", M=2.01588e-3, H0=0);//, state=State.Gas);
   constant Species O2(name="Oxygen", M=31.9988e-3, H0=0);//, state=State.Gas);

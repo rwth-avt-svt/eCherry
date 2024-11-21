@@ -1,17 +1,28 @@
 within eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry;
-model ElectrodeReaction
+partial model ElectrodeReaction_Base
   "serial connection of multiple overpotentials and connection to phase"
 
   // Replaceable submodel
   replaceable model ActivationOverpotentialModel =
     Electrochemistry.Activation_Overpotential.ActivationOverpotential
-                                                 annotation (choices(
+    annotation (choices(
    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential
     "BV equation with concentration dependence",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialTafelCathodic
-    "Tafel approach (cathodic)",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialTafelAnodic
-    "Tafel approach (anodic)"));
+    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialSpecRec
+    "BV equation with concentration dependence (SpecRec)",
+    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialTafel
+    "Tafel approach",
+    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialColdStart
+    "Approach from Sakas2022 used for ColdStart example"));
+  replaceable model EquilibriumPotentialModel =
+    Electrochemistry.Equilibrium_Potential.EquilibriumPotential
+    annotation (choices(
+    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Equilibrium_Potential.EquilibriumPotential
+    "Nernst equation",
+    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Equilibrium_Potential.EquilibriumPotentialSpecRec
+    "Nernst equation for SpecRec",
+    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Equilibrium_Potential.EquilibriumPotentialColdStart
+    "Approach from Sakas2022 used for ColdStart example"));
 
   // Species handling
   parameter Data.DataRecords.Species.SpeciesRecord specRec;
@@ -21,28 +32,29 @@ model ElectrodeReaction
   parameter Length Y "in m";
   parameter Length Z "in m";
   input Pressure[specRec.nSpec] Pi "partial pressure in pascal";
+  input Concentration[specRec.nSpec] c "concentration in mol/m^3";
 
   //Anode or Cathode?
   parameter Boolean CathodeEl "= true, if cathode in electrolysis mode (=anode in galvanic mode), else false";
 
   // Models
-  Electrochemistry.Equilibrium_Potential.EquilibriumPotential eqP(
+  EquilibriumPotentialModel eqP(
     specRec=specRec,
     reac=reac,
     T=T,
-    Pi=Pi);
+    Pi=Pi,
+    c=c,
+    CathodeEl=CathodeEl);
+
   ActivationOverpotentialModel actOp(
     reac=reac,
     specRec=specRec,
     T=T,
     Y=Y,
     Z=Z,
-    Pi=Pi);
-
-  // Connectors (phase)
-  MaterialDomain.Connectors.Material_Liquid flowFromElectrolyte(specRec=specRec)
-    annotation (Placement(transformation(extent={{-110,52},{-90,72}}),
-        iconTransformation(extent={{-20,80},{20,120}})));
+    Pi=Pi,
+    c=c,
+    CathodeEl=CathodeEl);
 
   // Variables
   MolarFlowRate[specRec.nSpec] productionRate "Molar rate produced (>0) or consumed (<0) by reaction";
@@ -57,7 +69,6 @@ model ElectrodeReaction
 equation
 
   // Connections (circuit)
-
   if CathodeEl == true then
     connect(n, actOp.p); //changed as current for cathode in electrolysis mode (=anode in galvanic mode) has to be switched
     connect(actOp.n, eqP.p);
@@ -73,14 +84,6 @@ equation
     // NB: Flipping sign here according to IUPAC convention:
     //     Even though reactions are written as reduction, current is negative if reaction is actually running as reduction
     productionRate[k] = -actOp.i*Utility.get_nu(specRec.species[k], reac)/reac.z/F;
-
-    // Molar balance: zero holdup at reaction locus (phase boundary)
-    flowFromElectrolyte.molFlow_vec[k] + productionRate[k] = 0;
   end for;
 
-  // Pass concentrations to calculate potentials
-  for k in 1:specRec.nSpec loop
-    flowFromElectrolyte.c[k] = eqP.c[k];
-    actOp.c[k] = eqP.c[k];
-  end for;
-end ElectrodeReaction;
+end ElectrodeReaction_Base;

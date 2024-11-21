@@ -10,7 +10,7 @@ model Electrolyzer_Batch_0D_GL_NonIsobaric
         origin={0,50})));
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
@@ -21,8 +21,7 @@ model Electrolyzer_Batch_0D_GL_NonIsobaric
     Z=0.1,
     Pi(displayUnit="bar"))
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode
-    Cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,

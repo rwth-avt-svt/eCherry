@@ -33,6 +33,16 @@ record List_Of_Reactions
     dH_app=0,
     Eth0=0.9002);
 
+   constant Reaction NRRdummy(
+    species={"Nitrogen","Water", "Ammonia", "Hydroxide"},
+    nu={-0.5, -3, 1, 3},
+    RO={-0.5, -3, 1, 3},
+    z=3,
+    Eeq0=-0.736,
+    j0=1,
+    alpha_a=0.5,
+    dH_app=0);
+
    constant Reaction COERAg(
     species={"Proton","CO2","CO","Water"},
     nu={-2,-1,1,1},
@@ -89,7 +99,7 @@ record List_Of_Reactions
     alpha_a=0.5,
     Eth0=0.9002);
 
-  constant Reaction HERdummy_Sakas2022(
+  constant Reaction HERdummy_ColdStart(
     species={"Water","Hydrogen","Hydroxide"},
     nu={-2,1,2},
     RO={-2,1,2},
@@ -97,9 +107,9 @@ record List_Of_Reactions
     Eeq0=0,
     j0=0,
     alpha_a=0.5,
-    reacEeq0TModel=ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.WaterElectrolysisEmpiric_Sakas2022);
+    reacEeq0TModel=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.WaterElectrolysisEmpiricColdStart);
 
-  constant Reaction OERdummy_Sakas2022(
+  constant Reaction OERdummy_ColdStart(
     species={"Oxygen","Water","Hydroxide"},
     nu={-0.5,-1,2},
     RO={-0.5,-1,1},
@@ -107,7 +117,7 @@ record List_Of_Reactions
     Eeq0=0,
     j0=0,
     alpha_a=0.5,
-    reacEeq0TModel=ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.WaterElectrolysisEmpiric_Sakas2022);
+    reacEeq0TModel=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.WaterElectrolysisEmpiricColdStart);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));

@@ -47,29 +47,39 @@ model CouplingElectrolysisAndPhotovoltaics
     Placement(visible = true, transformation(origin={154,90},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   PhotoVoltaics.Sources.Irradiance.Irradiance irradiance annotation (Placement(transformation(extent={{-76,134},
             {-56,154}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
+
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
+
     reac={eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.OERdummy},
+
     T(displayUnit="K"),
     Pi(displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-82,-20},{-62,0}})));
 
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
+
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
+
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
+
     reac={eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.HERdummy},
+
     T(displayUnit="K"),
     Pi(displayUnit="bar"),
     CathodeEl=true)
@@ -85,13 +95,16 @@ model CouplingElectrolysisAndPhotovoltaics
       molFlow_vec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.c0
         *0.00000833333)
     annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-  eCherry_Library.ElectrochemicalReactor.Separators.DiaphragmHydroxide
+  eCherry_Library.ElectrochemicalReactor.Separators.Diaphragm_Hydroxide
     Diaphragm(
     Y=Y,
     Z=Z,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
+
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
+
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
+
     X=5e-4,
     kappa=27.1) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
 

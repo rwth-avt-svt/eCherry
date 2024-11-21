@@ -1,15 +1,15 @@
 within eCherry_Library.ElectrochemicalReactor.Properties.DensityModels;
 model DensityMix
+  extends DensityBase;
   input Temperature T  "Temperature in K";
   input Data.DataRecords.Species.SpeciesRecord specRec;
   constant Integer nSpec = specRec.nSpec;
   input Concentration c[nSpec];
   input String Electrolyte  "Type/Name of Electrolyte, e.g. KOH";
-  output Density rho_mix  "mixture density";
+  output Density rho_i  "mixture density";
 
   // Auxillary variables
   Real w_Electrolyte;
-  Density rho_w;
   Real c0;
   Real c1;
   Real c2;
@@ -19,7 +19,13 @@ model DensityMix
   Real v_app;
 
   // Auxillary models
-  DensityModels.DensityWater calc_rho_w(T=T);
+  replaceable model DensityModel =
+      Properties.DensityModels.DensityWaterTdependent(T=T)
+      annotation(choices(
+    choice=Properties.DensityModels.DensityWaterTdependent
+    "Temperature dependent water density"));
+  DensityModel model_rho_w;
+  inner Density rho_w;
   UnitConversionModels.MassFraction calc_w(
     specRec=specRec,
     c=c,
@@ -27,7 +33,7 @@ model DensityMix
 
 equation
 
-  rho_w = calc_rho_w.rho_w;
+  rho_w = model_rho_w.rho_i;
   w_Electrolyte = calc_w.w_i;
   if Electrolyte == "KOH" then
 
@@ -40,7 +46,7 @@ equation
     c4 =1180.9;
     v_app =(w_Electrolyte + c2 + c3*t)/((c0*w_Electrolyte + c1)*exp(1e-6*(t +
       c4)^2));
-    rho_mix =1/((1 - w_Electrolyte)/rho_w + w_Electrolyte*v_app);
+    rho_i =1/((1 - w_Electrolyte)/rho_w + w_Electrolyte*v_app);
 
   else
     t =0;
@@ -50,7 +56,7 @@ equation
     c3 =0;
     c4 =0;
     v_app =0;
-    rho_mix =0;
+    rho_i =0;
 
   end if;
 

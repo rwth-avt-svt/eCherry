@@ -11,13 +11,16 @@ model EquilibriumPotential
   inner parameter eCherry_Library.Data.DataRecords.ElecReaction.Reaction reac;
   inner input Temperature T;
   input Pressure[specRec.nSpec] Pi "partial pressure in pascal";
+  input Concentration[specRec.nSpec] c "concentration in mol/m^3"; //leai01
+  parameter Boolean CathodeEl "= true, if cathode in electrolysis mode (=anode in galvanic mode), else false";
 
   // Variables
   Voltage Eeq;
   inner Voltage Eeq0T;
 
+
   eCherry_Library.ElectrochemicalReactor.Properties.Activity[specRec.nSpec] a;
-  Concentration c[specRec.nSpec] "in mol/m^3; to be specified in client model";
+  // Concentration c[specRec.nSpec] "in mol/m^3; to be specified in client model";
 
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0TConstant
     Eeq0ModelConstant if (reac.reacEeq0TModel == eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.Constant);

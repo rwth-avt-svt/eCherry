@@ -34,6 +34,7 @@ record Thermal
 
   // For convective inflow
   constant Temperature T0convectiveInflow "Temperature for convective inflow of electrolyte";
+  constant Temperature TinflowMax "Max inflow temperature for ColdStart";
 
   //For shunt currents, Qshunt is additionally dissipated in each half-cell
   //constant HeatFlowRate QFlow_shunt "Heat dissipation due to shunt currents";

@@ -1,4 +1,6 @@
-ElectrodeReaction
+ElectrodeReaction_Base
+ElectrodeReaction_Planar
+ElectrodeReaction_GasDiffusion
 Activation_Overpotential
 Equilibrium_Potential
 Eeq0

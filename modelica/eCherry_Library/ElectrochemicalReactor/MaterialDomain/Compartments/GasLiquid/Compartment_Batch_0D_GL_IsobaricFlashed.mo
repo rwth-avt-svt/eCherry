@@ -16,7 +16,15 @@ model Compartment_Batch_0D_GL_IsobaricFlashed
   MolarFlowRate molFlow_vec_out[GSpec.nSpec]
                                             "gaseous species molar flows leaving";
   MoleFraction yi[GSpec.nSpec];//mole fractions in V_G und V_env
-  Properties.DensityModels.DensityWater calc_rho_W(T=T);
+  replaceable model DensityModel =
+      Properties.DensityModels.DensityWaterTdependent(T=T)
+      annotation(choices(
+    choice=Properties.DensityModels.DensityConstant
+    "Constant density",
+    choice=Properties.DensityModels.DensityWaterTdependent
+    "Temperature dependent water density"));
+  DensityModel model_rho_w;
+  inner Density rho_w;
 
   // Connectors
   Connectors.Material_Liquid leftFlow(specRec=specRec) annotation (Placement(
@@ -31,6 +39,7 @@ model Compartment_Batch_0D_GL_IsobaricFlashed
             -20,80},{20,120}})));
 
 initial equation
+
   for k in DSpecA: AllSpec loop
     mol_vec[k] =mol_vec_0[k];
   end for;
@@ -39,6 +48,8 @@ initial equation
   end for;
 
 equation
+  rho_w = model_rho_w.rho_i;
+
   //calculate mol_vec[k] for k in DSpec, LSpec
   for k in DSpecA:AllSpec loop
     der(mol_vec[k]) = rightFlow.molFlow_vec[k]+ leftFlow.molFlow_vec[k];
@@ -48,7 +59,7 @@ equation
   //caculate total liquid molar amount (mol_tot_L)
   mol_tot_L = sum(mol_vec_L[j] for j in 1:DSpec.nSpec+LSpec.nSpec);
   //approximate liquid volume from mass and density of pure water
-  V_L = (mol_vec[AllSpec]*specRec.species[AllSpec].M)/calc_rho_W.rho_w;
+  V_L = (mol_vec[AllSpec]*specRec.species[AllSpec].M)/rho_w;
   //calculate gaseous amount in compartment from gaseous volume
   P*V_G = mol_tot_G*R*T;
   //calculate molFlow_tot_out

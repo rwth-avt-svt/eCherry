@@ -27,19 +27,21 @@ model Electrolyzer_Batch_1D_ElectrolyteMedia_AWE
         origin={12,50})));
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Anode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     specRec=specRec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis_x_eMedia_KOH.OERdummy},
+
     Y=0.1,
     Z=0.1,
     Pi(displayUnit="bar") = Data.UserInput.Example_AlkalineWaterElectrolysis_x_eMedia_KOH.Pi,
+
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
 
 
-  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode Cathode(
+  eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     specRec=specRec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
@@ -47,6 +49,7 @@ model Electrolyzer_Batch_1D_ElectrolyteMedia_AWE
     Y=0.1,
     Z=0.1,
     Pi(displayUnit="bar") = Data.UserInput.Example_AlkalineWaterElectrolysis_x_eMedia_KOH.Pi,
+
     CathodeEl=true)
     annotation (Placement(transformation(extent={{126,-34},{146,-14}})));
 
