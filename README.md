@@ -7,6 +7,9 @@ eCherry is in active development and over time we will add more features and a d
 If you have any questions/comments: write a ticket or mail us at: electrochemistry.SVT [ät] avt.rwth-aachen.de-
 There is also a publication on its way which we will integrate here asap.
 
+# getting started
+If you want to use eCherry: [how to get started](https://git.rwth-aachen.de/avt-svt/public/echerry/-/wikis/Getting-Started).
+Further explanation can be found in the [wiki](https://git.rwth-aachen.de/avt-svt/public/echerry/-/wikis/home).
 # more detailed explanation
 With the rising need of defossilizing the chemical industry, the development of processes comprised of electrochemical reactors has become increasingly of interest. Since experimental investigations of novel reactor concepts are costly and time-intensive, computer-aided methods may aid in the design process. However, existing computer-aided models of electrochemical reactors have been tailored for one specific process concept, which makes them hard to reapply for other research questions with slightly different reactor and process concepts. Such reusability and adjustability can be achieved by (open) modeling libraries, which are well established in computer-aided process engineering for applications. However, we find such libraries lacking for electrochemical applications.
 
