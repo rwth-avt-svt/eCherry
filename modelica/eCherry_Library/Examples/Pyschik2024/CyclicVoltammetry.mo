@@ -10,12 +10,13 @@ model CyclicVoltammetry
     T0(displayUnit="K"),
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.GeoRec,
     CondRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.CondRec,
     specRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.FRRspec,
     reac={Data.UserInput.Pyschik2024_CyclicVoltammetry.FCOR},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false,
     reactions(actOp(etaRef(start={-0.014342580163325295}))))
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
@@ -23,6 +24,8 @@ model CyclicVoltammetry
   ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Batch_0D_L electrolyte(
     GeoRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.GeoRec,
     CondRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.CondRec,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     X=0.1,
     specRec=Data.UserInput.Pyschik2024_CyclicVoltammetry.FRRspec,
     kappa_const=30000,

@@ -31,8 +31,8 @@ record Pyschik2024_AlkalineWaterElectrolyzer
     z=2,
     Eeq0=-0.829,
     j0=(13.72491 - 0.09055*T + 0.09055*T^2)/10,
-    alpha_a = 1-(0.1175 + 0.00095*T)*2,
-    alpha_c = (0.1175 + 0.00095*T)*2,
+    alpha_a=1 - (0.1175 + 0.00095*T)*2,
+    alpha_c=(0.1175 + 0.00095*T)*2,
     dH_app=0);
 
   constant DataRecords.ElecReaction.Reaction OERdummy(
@@ -42,8 +42,8 @@ record Pyschik2024_AlkalineWaterElectrolyzer
     z=2,
     Eeq0=0.401,
     j0=(30.4 - 0.206*T + 0.00035*T^2)/10,
-    alpha_a = (0.0675 + 0.00095*T)*2,
-    alpha_c = 1-(0.0675 + 0.00095*T)*2,
+    alpha_a=(0.0675 + 0.00095*T)*2,
+    alpha_c=1 - (0.0675 + 0.00095*T)*2,
     dH_app=0);
 
   //Geometry: define the geometry of the reactor here:

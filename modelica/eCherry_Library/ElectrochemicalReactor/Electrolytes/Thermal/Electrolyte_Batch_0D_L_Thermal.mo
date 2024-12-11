@@ -2,7 +2,7 @@ within eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal;
 model Electrolyte_Batch_0D_L_Thermal
   "Compartment with diffusive transport in zero dimension and Ohmic overpotential"
   extends Liquid.Electrolyte_Batch_0D_L;
-  extends ThermalDomain.EnergyBalance_Base;
+  extends ThermalDomain.EnergyBalance_Base(V=V_geo,Pr=CondRec.p);
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                  "Temperature is variale for energy balance";

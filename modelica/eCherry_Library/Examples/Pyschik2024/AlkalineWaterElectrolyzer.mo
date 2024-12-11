@@ -8,36 +8,30 @@ model AlkalineWaterElectrolyzer
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
-
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
-
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialTafel,
-
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     reac={eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.OERdummy},
-
     T(displayUnit="K"),
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-92,-30},{-72,-10}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
-
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialTafel,
-
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
-
     reac={eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.HERdummy},
-
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     T(displayUnit="K"),
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true)
     annotation (Placement(transformation(extent={{70,-30},{90,-10}})));
 
@@ -53,18 +47,19 @@ model AlkalineWaterElectrolyzer
     annotation (Placement(transformation(extent={{30,-66},{50,-46}})));
   eCherry_Library.ElectrochemicalReactor.Separators.Diaphragm_Hydroxide
     Diaphragm(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
-
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
-
     X=5e-4,
     kappa=27.1)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
     Catholyte(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
     GSpec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWE_Gspec,
     DSpec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWE_Dspec,
@@ -87,6 +82,8 @@ model AlkalineWaterElectrolyzer
 
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
     Anolyte(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
     GSpec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWE_Gspec,
     DSpec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWE_Dspec,

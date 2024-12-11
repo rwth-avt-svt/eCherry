@@ -1,17 +1,14 @@
 within eCherry_Library.ElectrochemicalReactor.Electrodes;
 model Electrode_Thermal
   extends eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar;
-  extends ThermalDomain.EnergyBalance_Base;
-
-  redeclare model TemperatureModel =
-      Properties.TemperatureModels.TemperatureVariable                  "Temperature is variale for energy balance";
+  extends ThermalDomain.EnergyBalance_Base(V=V_geo,Pr=CondRec.p);
 
   // Parameter
   parameter Length X = if CathodeEl then EBRec.X_cathode else EBRec.X_anode;
   parameter SpecificHeatCapacity cp = if CathodeEl then EBRec.cp_cathode else EBRec.cp_anode;
   parameter Density rho = if CathodeEl then EBRec.rho_cathode else EBRec.rho_anode;
 
-  parameter Volume V = X*Y*Z "Volume of electrode";
+  inner parameter Volume V_geo = X*Y*Z "Volume of electrode";
   parameter Area A = Y*Z "Area of electrode";
 
 equation
@@ -19,7 +16,7 @@ equation
   rightHeatFlow.T = T;
   leftHeatFlow.T = T;
 
-  H_tot = rho*V*cp*(T-Tref);
+  H_tot = rho*V_geo*cp*(T-Tref);
   QFlow=0;
   HFlow=0;
 

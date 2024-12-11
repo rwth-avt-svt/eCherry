@@ -20,7 +20,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
   Echery_library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.Material_Simple_InFlow_Thermal
     AnodeInflow(
     specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-
     molFlow_vec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_an
         *0.0001,
     EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
@@ -29,7 +28,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
   Echery_library.ElectrochemicalReactor.ThermalDomain.Material_Thermal.Material_Simple_InFlow_Thermal
     CathodeInflow(
     specRec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-
     molFlow_vec=Echery_library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.c0_cat
         *0.0001,
     EBRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
@@ -114,7 +112,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     compositeConnectionLayer4(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_anode_externalHeating,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{-112,-54},{-92,-34}})));
 
@@ -122,7 +119,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     compositeConnectionLayer(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_anode_electrolyte,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{-78,-54},{-58,-34}})));
 
@@ -130,7 +126,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     compositeConnectionLayer2(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_membrane_anolyte,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{-32,-54},{-12,-34}})));
 
@@ -138,7 +133,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     compositeConnectionLayer3(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_membrane_catholyte,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{6,-54},{26,-34}})));
 
@@ -146,7 +140,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     compositeConnectionLayer1(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_cathode_electrolyte,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{56,-58},{76,-38}})));
 
@@ -154,7 +147,6 @@ model Electrolyzer_Conti_0D_L_Thermal_MultipleReactions
     compositeConnectionLayer5(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_cathode_externalHeating,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{86,-56},{106,-36}})));
 

@@ -2,9 +2,9 @@ within eCherry_Library.ElectrochemicalReactor.ThermalDomain;
 partial model EnergyBalance_Base
 
   parameter Temperature Tref = 298.15 "Refrence temperature for calculation of heat capacity";
-  inner parameter Pressure P=10^5;
-  inner parameter Volume V_geo=1;
-  inner parameter Data.DataRecords.Thermal EBRec;
+  parameter Pressure Pr;//=1e5;
+  parameter Volume V;//=1;
+  parameter Data.DataRecords.Thermal EBRec;
 
 // Variables
   Enthalpy H_tot "Total enthalpy of system";
@@ -27,7 +27,7 @@ partial model EnergyBalance_Base
     annotation (Placement(transformation(extent={{90,-56},{110,-36}})));
 
 equation
-   U_tot = H_tot- P*V_geo;
+   U_tot = H_tot- Pr*V;
    der(U_tot) = leftHeatFlow.Q_flow+ rightHeatFlow.Q_flow +QFlow + HFlow + WFlow;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(

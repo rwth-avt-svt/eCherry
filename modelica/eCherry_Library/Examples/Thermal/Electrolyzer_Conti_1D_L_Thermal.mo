@@ -17,7 +17,7 @@ Temperature Tdistr_all[2*n_slices+2];
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-190,-40},{-170,-20}})));
@@ -27,7 +27,7 @@ Temperature Tdistr_all[2*n_slices+2];
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{170,-40},{190,-20}})));

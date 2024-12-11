@@ -10,15 +10,15 @@ record Example_AlkalineWaterElectrolysis_KOH_GL
         eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.Kp,
         eCherry_Library.Data.DataRecords.Species.LiquidSpecies.H2O});
 
-  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord GSpec(species
-      ={eCherry_Library.Data.DataRecords.Species.GaseousSpecies.O2,
+  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord GSpec(species=
+       {eCherry_Library.Data.DataRecords.Species.GaseousSpecies.O2,
         eCherry_Library.Data.DataRecords.Species.GaseousSpecies.H2});
-  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord DSpec(species
-      ={eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.Hp,
+  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord DSpec(species=
+       {eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.Hp,
         eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.OHm,
         eCherry_Library.Data.DataRecords.Species.DissolvedSpecies.Kp});
-  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord LSpec(species
-      ={eCherry_Library.Data.DataRecords.Species.LiquidSpecies.H2O});
+  constant eCherry_Library.Data.DataRecords.Species.SpeciesRecord LSpec(species=
+       {eCherry_Library.Data.DataRecords.Species.LiquidSpecies.H2O});
 
   //Reactions: define the reactions for an Alkaline Water Electrolyser here:
   constant DataRecords.ElecReaction.Reaction HERdummy=DataRecords.ElecReaction.List_Of_Reactions.HERdummy;

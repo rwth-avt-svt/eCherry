@@ -91,6 +91,8 @@ package AlkalineAmmoniaElectrolyzer
     extends Modelica.Icons.Example;
     ElectrochemicalReactor.Electrodes.Electrode_GasDiffusion
       gasDiffusionElectrode(
+      redeclare model TemperatureModel =
+        Properties.TemperatureModels.TemperatureConstant,
       specRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.AESspec,
       GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.GeoRecElec,
       CondRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.CondRec,
@@ -104,6 +106,8 @@ package AlkalineAmmoniaElectrolyzer
       annotation (Placement(transformation(extent={{44,-10},{64,10}})));
 
     ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
+    redeclare model TemperatureModel =
+        Properties.TemperatureModels.TemperatureConstant,
       specRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.AESspec,
       GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.GeoRec,
       CondRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.CondRec,
@@ -114,6 +118,8 @@ package AlkalineAmmoniaElectrolyzer
       annotation (Placement(transformation(extent={{-86,-10},{-64,10}})));
 
     ElectrochemicalReactor.Separators.Diaphragm_Hydroxide diaphragmHydroxide(
+    redeclare model TemperatureModel =
+        Properties.TemperatureModels.TemperatureConstant,
       GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.GeoRecMem,
       specRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.AESspec,
       CondRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.CondRec)
@@ -156,6 +162,8 @@ package AlkalineAmmoniaElectrolyzer
 
     ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L
       electrolyte_Conti_0D_L1(
+      redeclare model TemperatureModel =
+        Properties.TemperatureModels.TemperatureConstant,
       c0=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.c0_Electrolyte,
       specRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.AESspec,
       GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineAmmoniaElectrolyzer.GeoRecElec,

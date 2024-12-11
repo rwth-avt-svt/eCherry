@@ -6,8 +6,8 @@ record Pyschik2024_ElectrolyzerColdStart
         Data.DataRecords.Species.LiquidSpecies.H2O});
 
   //Reactions: define the reactions for an Alkaline Water Electrolyser here:
-  constant Data.DataRecords.ElecReaction.Reaction HERdummy=Data.DataRecords.ElecReaction.List_Of_Reactions.HERdummy_ColdStart;
-  constant Data.DataRecords.ElecReaction.Reaction OERdummy=Data.DataRecords.ElecReaction.List_Of_Reactions.OERdummy_ColdStart;
+  constant DataRecords.ElecReaction.Reaction HERdummy=DataRecords.ElecReaction.List_Of_Reactions.HERdummy_ColdStart;
+  constant DataRecords.ElecReaction.Reaction OERdummy=DataRecords.ElecReaction.List_Of_Reactions.OERdummy_ColdStart;
 
   //Geometry: define the geometry of the reactor here:
   constant Data.DataRecords.Geometry GeoRec(

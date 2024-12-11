@@ -23,6 +23,7 @@ model ElectrolyzerColdStart
     reac_anode={eCherry_Library.Data.UserInput.Pyschik2024_ElectrolyzerColdStart.OERdummy},
     reac_cathode={eCherry_Library.Data.UserInput.Pyschik2024_ElectrolyzerColdStart.HERdummy},
     kappa_membrane=eCherry_Library.Data.UserInput.Pyschik2024_ElectrolyzerColdStart.kappa_const,
+    //redeclare model TemperatureModel =  eCherry_Library.ElectrochemicalReactor.Properties.TemperatureModels.TemperatureVariable,
     redeclare model DensityModel =
         eCherry_Library.ElectrochemicalReactor.Properties.DensityModels.DensityConstant
         (rho_const=1280),

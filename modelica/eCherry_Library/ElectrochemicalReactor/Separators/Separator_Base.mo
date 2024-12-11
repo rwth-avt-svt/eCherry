@@ -4,7 +4,7 @@ partial model Separator_Base
 
   // Temperature model
   replaceable model TemperatureModel =
-    Properties.TemperatureModels.TemperatureConstant
+    Properties.TemperatureModels.TemperatureBase
       annotation(choices(
     choice=Thermodynamics.TemperatureConstant
     "Constant Temperature",
@@ -23,6 +23,7 @@ partial model Separator_Base
   parameter Length X=GeoRec.X_membrane;
   parameter Length Y=GeoRec.Y;
   parameter Length Z=GeoRec.Z;
+  parameter Volume V_geo=X*Y*Z;
   parameter Conductivity kappa=GeoRec.cond0;
 
   MaterialDomain.Connectors.Material_Liquid anCon(specRec=specRec) annotation (

@@ -14,32 +14,27 @@ model Electrolyzer_Conti_0D_L
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
-
     CondRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
-
     specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
-
     reac={Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
-
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-92,-30},{-72,-10}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
-
     CondRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
-
     redeclare model ActivationOverpotentialModel =
         Echery_library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
     specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
-
     reac={Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
-
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true)
     annotation (Placement(transformation(extent={{70,-30},{90,-10}})));
 
@@ -55,12 +50,11 @@ model Electrolyzer_Conti_0D_L
     annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
   Echery_library.ElectrochemicalReactor.Separators.Diaphragm_Hydroxide
     Diaphragm(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
-
     GeoRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
-
     CondRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
-
     X=5e-4,
     kappa=38)
     annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
@@ -79,6 +73,8 @@ model Electrolyzer_Conti_0D_L
     annotation (Placement(transformation(extent={{30,22},{50,42}})));
   Echery_library.ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L
     Anolyte(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     c0=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.c0,
     specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
@@ -88,6 +84,8 @@ model Electrolyzer_Conti_0D_L
 
   Echery_library.ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L
     Catholyte(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     c0=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.c0,
     specRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Echery_library.Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,

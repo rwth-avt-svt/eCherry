@@ -3,7 +3,7 @@ model ConductivityElectrolyteConstant
   "Constant conductivity for the electrolyte"
   extends ConductivityElectrolyteBase;
 
-  outer parameter Conductivity kappa_const = 80 "Constant Conductivity of electrolyte in S m-1";
+  outer parameter Conductivity kappa_const "Constant Conductivity of electrolyte in S m-1";
 
 equation
   kappa_i = kappa_const;

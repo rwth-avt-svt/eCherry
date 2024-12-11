@@ -12,9 +12,11 @@ model Electrolyzer_Batch_0D_GL_IsobaricFlashedEnvironment
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
     CathodeEl=false,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     Y=0.1,
     Z=0.1,
-    Pi(displayUnit="bar"))
+    Pi(each displayUnit="bar"))
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
   ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
@@ -23,13 +25,17 @@ model Electrolyzer_Batch_0D_GL_IsobaricFlashedEnvironment
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
     CathodeEl=true,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     Y=0.1,
     Z=0.1,
-    Pi(displayUnit="bar"))
+    Pi(each displayUnit="bar"))
     annotation (Placement(transformation(extent={{56,-34},{76,-14}})));
 
   ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Batch_0D_GL_IsobaricFlashed
     Electrolyte_flashed(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GSpec=Data.UserInput.Example_AlkalineWaterElectrolysis.GSpec,
     DSpec=Data.UserInput.Example_AlkalineWaterElectrolysis.DSpec,

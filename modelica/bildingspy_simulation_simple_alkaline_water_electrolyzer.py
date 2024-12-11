@@ -20,10 +20,10 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 14})
 
 # define model (and package) to simulate
-s = Simulator(modelName="eCherry_Library.Examples.Pyschik2024.ElectrolyzerGraphicalFlowLOverpotentialExample", packagePath="eCherry_Library")
+s = Simulator(modelName="eCherry_Library.Examples.Pyschik2024.AlkalineWaterElectrolyzer", packagePath="eCherry_Library")
 
 # whether to show dymola instance
-s.showGUI(show=True)
+#s.showGUI(show=True)
 
 # whether  or not to exit dymola automatically (else can close manually or check if simulation crashed)
 #s.exitSimulator(exitAfterSimulation=False)
@@ -44,7 +44,7 @@ s.addParameters({'source.j0': 1})
 s.simulate()
 
 # define variable reader
-r=Reader("ElectrolyzerGraphicalFlowLOverpotentialExample.mat", "dymola")
+r=Reader("AlkalineWaterElectrolyzer.mat", "dymola")
 I = r.varNames()
 
 # define variable data to extract (if not all data is extracted and put in dataframe/csv)
@@ -68,6 +68,8 @@ print(data)
 
 # export data as csv
 data.to_csv('simple_electrolyzer_results_all.csv')
+
+
 # plot data
 #plt.plot(data['source.j'], data['source.v'])
 plt.plot(data['source.j'], -data['Cathode.reactions[1].actOp.etaRef'], label='Cathode act.')
@@ -81,7 +83,7 @@ plt.xlabel('$j$ / (A/m$^2$)')
 plt.ylim(0,0.5)
 plt.legend(frameon=False)
 plt.tight_layout()
-plt.savefig('Alkaline_Water_Electrolyzer_Example_separate.png')
+#plt.savefig('Alkaline_Water_Electrolyzer_Example_separate.png')
 plt.show()
 plt.close()
 
@@ -93,7 +95,6 @@ data[['tot_act', 'tot_ohmic_bub_free', 'tot_ohmic_bub_add', 'j']].to_csv('simple
 
 #plt.plot(data['source.j'], -data['Cathode.reactions[1].actOp.etaRef'], label='Cathode act.')
 #plt.plot(data['source.j'], data['Anode.reactions[1].actOp.etaRef'], label='Anode act.')
-print(data['Catholyte.v']*(data['Catholyte.kappa'][0]/data['Catholyte.kappa_L']) )
 plt.plot(data['source.j'], data['Anode.reactions[1].actOp.etaRef']-data['Cathode.reactions[1].actOp.etaRef'], label='Total activation')
 #plt.plot(data['source.j'], data['Catholyte.v'] + data['Anolyte.v'] + data['Diaphragm.v'], label='Total ohmic')
 plt.plot(data['source.j'], data['Catholyte.v']*(data['Catholyte.kappa']/data['Catholyte.kappa_L'][0]) + data['Anolyte.v']*(data['Anolyte.kappa']/data['Anolyte.kappa_L'][0]) + data['Diaphragm.v'], label='Total ohmic (bubble free)')
@@ -104,5 +105,5 @@ plt.xlabel('$j$ / (A/m$^2$)')
 plt.ylim(0,0.5)
 plt.legend(frameon=False)
 plt.tight_layout()
-plt.savefig('Alkaline_Water_Electrolyzer_Example_total.png')
+#plt.savefig('Alkaline_Water_Electrolyzer_Example_total.png')
 plt.show()

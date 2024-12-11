@@ -16,7 +16,7 @@ model Electrolyzer_Batch_1D_L_Thermal
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-120,-30},{-100,-10}})));
@@ -26,7 +26,7 @@ model Electrolyzer_Batch_1D_L_Thermal
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{100,-30},{120,-10}})));
@@ -82,7 +82,6 @@ model Electrolyzer_Batch_1D_L_Thermal
     compositeConnectionLayerAnode(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_anode_electrolyte,
-
     epsilon1=1,
     epsilon2=1,
     useConvection=true,
@@ -94,7 +93,6 @@ model Electrolyzer_Batch_1D_L_Thermal
     compositeConnectionLayerCathode(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_cathode_electrolyte,
-
     useConvection=true,
     useConduction=false,
     useRadiation=false)
@@ -104,7 +102,6 @@ model Electrolyzer_Batch_1D_L_Thermal
     compositeConnectionLayer4(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_anode_externalHeating,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{-150,-50},{-130,-30}})));
 
@@ -112,7 +109,6 @@ model Electrolyzer_Batch_1D_L_Thermal
     compositeConnectionLayer5(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_cathode_externalHeating,
-
     useConvection=true)
     annotation (Placement(transformation(extent={{130,-60},{150,-40}})));
 

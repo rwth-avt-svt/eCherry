@@ -4,7 +4,7 @@ model ConductivityElectrolyteCalcKOH "Conductivity correlation for KOH"
 
   outer Temperature T  "Temperature in K";
   outer parameter Data.DataRecords.Species.SpeciesRecord specRec;
-  outer parameter Conductivity kappa_const = 80 "Constant Conductivity of electrolyte in S m-1";
+  outer parameter Conductivity kappa_const "Constant Conductivity of electrolyte in S m-1";
   constant Integer nSpec = specRec.nSpec;
   outer Concentration c[nSpec];
   parameter String list_name[nSpec] = specRec.species[:].name;
@@ -38,12 +38,22 @@ initial equation
     "Hydroxide", list=list_name);
   num_El = integer(max({ind_Kp, ind_KOH, ind_OHm, ind_OHm_Hydroxide}));
 
-  if num_El <= 0 then
-    assert(false, "Selected Electrolyte not in Species Record. Add electrolyte or change conductivity calculation");
-  else
-  end if;
+    // OpenModelica does not like assert in direct conditional evaluation
+
+  //if num_El <= 0 then
+    // Avoid assert in direct conditional evaluation
+    //assert(false, "Selected Electrolyte not in Species Record. Add electrolyte or change conductivity calculation");
+  //else
+  //end if;
+
+
 
 equation
+//changed from if to when and moved to equation part
+when num_El <= 0 then
+  assert(false, "Selected Electrolyte not in Species Record. Add electrolyte or change conductivity calculation");
+end when;
+
   c_temp = c[num_El] + Eps;
   kappa_i =( A*c_temp*1e-3 + B*(c_temp*1e-3)^2 + C*(c_temp*1e-3)*T + D*c_temp*1e-3/T + E*(c_temp*1e-3)^3 + F*(c_temp*1e-3)^2*T^2)*1e2;
 

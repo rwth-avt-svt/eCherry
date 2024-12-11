@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Separators.Thermal;
 model Membrane_Thermal
   extends Membrane;
-  extends ThermalDomain.EnergyBalance_Base;
+  extends ThermalDomain.EnergyBalance_Base(V=V_geo,Pr=CondRec.p);
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable "Temperature is variable for energy balance";

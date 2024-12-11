@@ -43,7 +43,6 @@ model Electrode_GasDiffusion
     each CathodeEl=CathodeEl,
     each splitFactor=splitFactor,
     redeclare model ActivationOverpotentialModel = ActivationOverpotentialModel,
-
     redeclare model EquilibriumPotentialModel = EquilibriumPotentialModel);
 
   MaterialDomain.Connectors.Material_Gas flowFromGas(specRec=specRec)

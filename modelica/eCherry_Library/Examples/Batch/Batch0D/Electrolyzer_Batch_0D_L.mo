@@ -16,29 +16,31 @@ model Electrolyzer_Batch_0D_L
     P=100000,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
+   redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
     Y=1,
     Z=1,
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
     Y=1,
     Z=1,
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true)
     annotation (Placement(transformation(extent={{70,-30},{90,-10}})));
 
@@ -46,6 +48,8 @@ model Electrolyzer_Batch_0D_L
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     X=0.01,
     Y=1,
     Z=1,

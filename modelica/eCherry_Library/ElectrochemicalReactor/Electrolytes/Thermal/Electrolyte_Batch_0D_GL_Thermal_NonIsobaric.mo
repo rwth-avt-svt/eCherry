@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal;
 model Electrolyte_Batch_0D_GL_Thermal_NonIsobaric
   extends GasLiquid.Electrolyte_Batch_0D_GL_NonIsobaric;
-extends ThermalDomain.EnergyBalance_Base;
+extends ThermalDomain.EnergyBalance_Base(V=V_geo,Pr=CondRec.p);
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                  "Temperature is variale for energy balance";
@@ -22,7 +22,7 @@ equation
 
   H_tot = sum(c[k]*V_geo*uSpec.h[k] for k in 1:AllSpec);
   QFlow =  HeatEnv.QFlow_housing + QFlow_shunt;
-  WFlow = abs(v*i)+ V_geo*der(P);
+  WFlow = abs(v*i)+ V_geo*der(Pr);
   HFlow=0;
 
   leftHeatFlow.T = T;

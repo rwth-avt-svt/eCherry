@@ -6,27 +6,33 @@ model Electrolyzer_Batch_0D_GL_KOH_IsobaricFlashed
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
   ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     P=100000,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.AWEKOHspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.CondRec,
     CathodeEl=false,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.OERdummy},
-    Pi(displayUnit="bar"))
+    Pi(each displayUnit="bar"))
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
 
   ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     P=100000,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.AWEKOHspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.CondRec,
     CathodeEl=true,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.HERdummy},
-    Pi(displayUnit="bar"))
+    Pi(each displayUnit="bar"))
     annotation (Placement(transformation(extent={{56,-34},{76,-14}})));
 
   ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Batch_0D_GL_IsobaricFlashed
     Electrolyte_flashed(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.AWEKOHspec,
     GSpec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.GSpec,
     DSpec=Data.UserInput.Example_AlkalineWaterElectrolysis_KOH_GL.DSpec,

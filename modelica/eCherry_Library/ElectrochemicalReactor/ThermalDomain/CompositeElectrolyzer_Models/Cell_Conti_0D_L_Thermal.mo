@@ -92,7 +92,7 @@ model Cell_Conti_0D_L_Thermal
     specRec=specRec,
     reac=reac_anode,
     EBRec=EBRec,
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false) annotation (Placement(transformation(extent={{-90,-10},{
             -70,10}})));
 
@@ -106,7 +106,7 @@ model Cell_Conti_0D_L_Thermal
     specRec=specRec,
     reac=reac_cathode,
     EBRec=EBRec,
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true) annotation (Placement(transformation(extent={{70,-10},{90,
             10}})));
 

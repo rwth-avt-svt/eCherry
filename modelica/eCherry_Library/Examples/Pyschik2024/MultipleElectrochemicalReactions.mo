@@ -7,14 +7,12 @@ model MultipleElectrochemicalReactions
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CondRec,
-
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-
     reac={eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.OER},
-
-    Pi(displayUnit="bar"),
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-92,-30},{-72,-10}})));
 
@@ -47,6 +45,8 @@ model MultipleElectrochemicalReactions
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CondRec,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     X=0.02,
     kappa_const=50)
     annotation (Placement(transformation(extent={{-50,-30},{-30,-10}})));
@@ -57,11 +57,15 @@ model MultipleElectrochemicalReactions
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CondRec,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     X=0.02,
     kappa_const=50)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
 
   eCherry_Library.ElectrochemicalReactor.Separators.Membrane membrane(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
@@ -72,15 +76,13 @@ model MultipleElectrochemicalReactions
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar cathode(
     T0=566.3,
     P=100000,
+     redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CondRec,
-
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.CO2spec,
-
     reac={eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.HER,
         eCherry_Library.Data.UserInput.Pyschik2024_MultipleElectrochemicalReactions.COERAg},
-
     CathodeEl=true)
     annotation (Placement(transformation(extent={{72,-30},{92,-10}})));
 

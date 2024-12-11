@@ -28,6 +28,8 @@ model Electrolyte_Batch_1D_L_nLayers
     dX=diff_distances);
 
   Electrolyte_Batch_0D_L slices[n_slices](
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     X=dXs,
     each specRec=specRec,
     each GeoRec=GeoRec,

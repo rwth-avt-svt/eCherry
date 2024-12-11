@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 plt.rcParams.update({'font.size': 14})
 
 # define model (and package) to simulate
-s = Simulator(modelName="eCherry_Library.Examples.Pyschik2024.ElectrolyzerGraphicalMultipleReactionsExample", packagePath="eCherry_Library")
+s = Simulator(modelName="eCherry_Library.Examples.Pyschik2024.MultipleElectrochemicalReactions", packagePath="eCherry_Library")
 
 # whether to show dymola instance
 #s.showGUI(show=True)
@@ -51,7 +51,7 @@ for j in range(100, 201, 50):
     s.simulate()
 
     # Define the variable reader
-    r = Reader("ElectrolyzerGraphicalMultipleReactionsExample.mat", "dymola")
+    r = Reader("MultipleElectrochemicalReactions.mat", "dymola")
 
     # Define variables to extract
     I = ['constantCurrentDensity.jFixed', 'constantCurrentDensity.v', 'FaradaicEffH2','FaradaicEffCO2']

@@ -21,7 +21,7 @@ partial model Compartment_Base
 
   // Temperature model
   replaceable model TemperatureModel =
-      Properties.TemperatureModels.TemperatureConstant
+      Properties.TemperatureModels.TemperatureBase
       annotation(choices(
     choice=Thermodynamics.TemperatureConstant
     "Constant Temperature",

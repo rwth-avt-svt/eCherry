@@ -16,7 +16,7 @@ model Electrolyzer_Batch_0D_L_Thermal
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{-90,-30},{-70,-10}})));
@@ -28,7 +28,7 @@ model Electrolyzer_Batch_0D_L_Thermal
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true,
     EBRec=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy)
     annotation (Placement(transformation(extent={{70,-30},{90,-10}})));
@@ -46,7 +46,6 @@ model Electrolyzer_Batch_0D_L_Thermal
     compositeConnectionLayerAnode(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_anode_electrolyte,
-
     epsilon1=1,
     epsilon2=1,
     useConvection=true,
@@ -58,7 +57,6 @@ model Electrolyzer_Batch_0D_L_Thermal
     compositeConnectionLayerCathode(
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     alpha=Data.UserInput.Example_AlkalineWaterElectrolysis.EBdummy.alpha_cathode_electrolyte,
-
     useConvection=true,
     useConduction=false,
     useRadiation=false)
@@ -72,8 +70,6 @@ equation
                     color={0,0,255}));
   connect(Source.p,Cathode. n) annotation (Line(points={{10,50},{96,50},{96,-20},
           {90,-20}},       color={0,0,255}));
-  connect(Anode.n, Electrolyte.p)
-    annotation (Line(points={{-70,-20},{-10,-20}}, color={0,0,255}));
   connect(Electrolyte.n, Cathode.p)
     annotation (Line(points={{10,-20},{10,-24},{62,-24},{62,-20},{70,-20}},
                                                  color={0,0,255}));

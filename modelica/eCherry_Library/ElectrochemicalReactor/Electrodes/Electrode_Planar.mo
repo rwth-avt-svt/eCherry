@@ -4,6 +4,7 @@ model Electrode_Planar
   extends Electrode_Base;
 
   // Replaceable submodel
+
   replaceable model ActivationOverpotentialModel =
     Electrochemistry.Activation_Overpotential.ActivationOverpotential
     annotation (choices(
@@ -46,7 +47,6 @@ model Electrode_Planar
     reac=reac,
     each CathodeEl=CathodeEl,
     redeclare model ActivationOverpotentialModel = ActivationOverpotentialModel,
-
     redeclare model EquilibriumPotentialModel = EquilibriumPotentialModel);
 
 equation

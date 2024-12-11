@@ -41,40 +41,34 @@ model Electrolyzer_Conti_0D_L_PV_flex
   parameter PhotoVoltaics.Records.SHARP_NU_S5_E3E moduleData annotation (
     Placement(visible = true, transformation(origin={154,90},   extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
     GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.CondRec,
-
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
-
     reac={eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.OERdummy},
-
     T(displayUnit="K"),
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-82,-20},{-62,0}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.CondRec,
-
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
-
     reac={eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.HERdummy},
-
     T(displayUnit="K"),
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true)
     annotation (Placement(transformation(extent={{80,-20},{100,0}})));
 
@@ -90,14 +84,13 @@ model Electrolyzer_Conti_0D_L_PV_flex
     annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
   eCherry_Library.ElectrochemicalReactor.Separators.Diaphragm_Hydroxide
     Diaphragm(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     Y=Y,
     Z=Z,
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
-
     GeoRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.CondRec,
-
     X=5e-4,
     kappa=27.1) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
 
@@ -112,6 +105,8 @@ model Electrolyzer_Conti_0D_L_PV_flex
     annotation (Placement(transformation(extent={{40,4},{60,24}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
     Catholyte(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
     GSpec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWE_Gspec,
     DSpec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWE_Dspec,
@@ -132,6 +127,8 @@ model Electrolyzer_Conti_0D_L_PV_flex
     annotation (Placement(transformation(extent={{40,32},{60,52}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
     Anolyte(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWEspec,
     GSpec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWE_Gspec,
     DSpec=eCherry_Library.Data.UserInput.Example_AlkalineWaterElectrolysis_Overpotentials.AWE_Dspec,

@@ -17,7 +17,6 @@ model ElectrolyzerGraphical1DLContiLV
     Z=Z,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
     Pi(displayUnit="bar") = Data.UserInput.Example_AlkalineWaterElectrolysis.Pi,
-
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-246,-90},{-226,-70}})));
 
@@ -29,7 +28,6 @@ model ElectrolyzerGraphical1DLContiLV
     Z=Z,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
     Pi(displayUnit="bar") = Data.UserInput.Example_AlkalineWaterElectrolysis.Pi,
-
     CathodeEl=true)
     annotation (Placement(transformation(extent={{116,-96},{136,-76}})));
 

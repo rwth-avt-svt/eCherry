@@ -12,6 +12,8 @@ model Electrolyzer_Batch_0D_GL_NonIsobaric
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
     P=100000,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
@@ -19,10 +21,12 @@ model Electrolyzer_Batch_0D_GL_NonIsobaric
     CathodeEl=false,
     Y=0.1,
     Z=0.1,
-    Pi(displayUnit="bar"))
+    Pi(each displayUnit="bar"))
     annotation (Placement(transformation(extent={{-84,-34},{-64,-14}})));
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     P=100000,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
@@ -30,7 +34,7 @@ model Electrolyzer_Batch_0D_GL_NonIsobaric
     CathodeEl=true,
     Y=0.1,
     Z=0.1,
-    Pi(displayUnit="bar"))
+    Pi(each displayUnit="bar"))
     annotation (Placement(transformation(extent={{56,-34},{76,-14}})));
   ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Batch_0D_GL_NonIsobaric
     Electrolyte(
@@ -40,6 +44,8 @@ model Electrolyzer_Batch_0D_GL_NonIsobaric
     LSpec=Data.UserInput.Example_AlkalineWaterElectrolysis.LSpec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     X=0.005,
     Y=1,
     Z=1,

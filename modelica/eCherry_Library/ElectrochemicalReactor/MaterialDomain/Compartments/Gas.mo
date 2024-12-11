@@ -19,9 +19,9 @@ package Gas
     parameter Real[specRec.nSpec] mol_vec_frac0 "fraction of initial amount of gas in the compartment; [0,1]";
 
     // Declaration of variables
-    AmountOfSubstance[specRec.nSpec] mol_vec(min=0);
-    Concentration[specRec.nSpec] c(min=0);
-    output Pressure[specRec.nSpec] Pi(min=0);
+    AmountOfSubstance[specRec.nSpec] mol_vec(each min=0);
+    Concentration[specRec.nSpec] c(each min=0);
+    output Pressure[specRec.nSpec] Pi(each min=0);
     AmountOfSubstance sum_mol_vec;
     MolarFlowRate sum_molFlow_vec_out;
 

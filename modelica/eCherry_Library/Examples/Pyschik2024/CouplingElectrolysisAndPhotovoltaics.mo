@@ -52,36 +52,30 @@ model CouplingElectrolysisAndPhotovoltaics
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
-
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
-
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
-
     reac={eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.OERdummy},
-
     T(displayUnit="K"),
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-82,-20},{-62,0}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
-
     Y=Y,
     Z=Z,
     redeclare model ActivationOverpotentialModel =
         eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential,
-
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
-
     reac={eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.HERdummy},
-
     T(displayUnit="K"),
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true)
     annotation (Placement(transformation(extent={{80,-20},{100,0}})));
 
@@ -97,14 +91,13 @@ model CouplingElectrolysisAndPhotovoltaics
     annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
   eCherry_Library.ElectrochemicalReactor.Separators.Diaphragm_Hydroxide
     Diaphragm(
+    redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     Y=Y,
     Z=Z,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
-
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
-
     CondRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.CondRec,
-
     X=5e-4,
     kappa=27.1) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
 

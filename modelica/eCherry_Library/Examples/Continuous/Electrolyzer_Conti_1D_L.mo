@@ -12,21 +12,25 @@ model Electrolyzer_Conti_1D_L
   Modelica.Electrical.Analog.Basic.Ground Ground
     annotation (Placement(transformation(extent={{70,54},{50,74}})));
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Anode(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     P=100000,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.OERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=false)
     annotation (Placement(transformation(extent={{-246,-90},{-226,-70}})));
   eCherry_Library.ElectrochemicalReactor.Electrodes.Electrode_Planar Cathode(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     P=100000,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     reac={Data.UserInput.Example_AlkalineWaterElectrolysis.HERdummy},
-    Pi(displayUnit="bar"),
+    Pi(each displayUnit="bar"),
     CathodeEl=true)
     annotation (Placement(transformation(extent={{116,-96},{136,-76}})));
 
@@ -42,6 +46,8 @@ model Electrolyzer_Conti_1D_L
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     dX=1e-7) annotation (Placement(transformation(extent={{46,-64},{66,-44}})));
   ElectrochemicalReactor.Separators.Diaphragm_Hydroxide Diaphragm(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
     CondRec=Data.UserInput.Example_AlkalineWaterElectrolysis.CondRec,
@@ -49,6 +55,8 @@ model Electrolyzer_Conti_1D_L
     kappa=38)
     annotation (Placement(transformation(extent={{-64,-86},{-44,-66}})));
   ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L Anolyte(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     c0=Data.UserInput.Example_AlkalineWaterElectrolysis.c0,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,
@@ -66,6 +74,8 @@ model Electrolyzer_Conti_1D_L
         Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec)
     annotation (Placement(transformation(extent={{-110,-34},{-90,-14}})));
   ElectrochemicalReactor.Electrolytes.Liquid.Electrolyte_Conti_0D_L Catholyte(
+  redeclare model TemperatureModel =
+      Properties.TemperatureModels.TemperatureConstant,
     specRec=Data.UserInput.Example_AlkalineWaterElectrolysis.AWEspec,
     c0=Data.UserInput.Example_AlkalineWaterElectrolysis.c0,
     GeoRec=Data.UserInput.Example_AlkalineWaterElectrolysis.GeoRec,

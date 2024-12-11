@@ -1,7 +1,7 @@
 within eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal;
 model Electrolyte_Batch_0D_GL_Thermal_IsobaricFlashed
   extends GasLiquid.Electrolyte_Batch_0D_GL_IsobaricFlashed;
-  extends ThermalDomain.EnergyBalance_Base;
+  extends ThermalDomain.EnergyBalance_Base(V=V_geo,Pr=CondRec.p);
 
   redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureVariable                  "Temperature is variale for energy balance";
