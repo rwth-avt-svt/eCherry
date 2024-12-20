@@ -7,7 +7,7 @@ record Reaction "Storing relevant data for electrochemical Reaction"
  Real Eeq0 "for Nernst equation";
  Real j0 "for BV equation";
  Real alpha_a "for BV equation";
- Real alpha_c=1-alpha_a "for BV equation";
+ Real alpha_c "for BV equation";
  parameter Voltage Eth0=0 "Standard Thermoneutral Voltage"; //default value since not always used
  parameter Real Cp=0 "Heat capacity"; //=sum(\nu_i*cp_i for in in 1:nSpec)
  parameter Real dH_app=-100000 "for j0 T-dependence in BV equation";  //default value since not always used
