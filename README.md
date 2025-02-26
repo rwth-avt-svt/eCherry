@@ -1,28 +1,38 @@
-# eCherry Public Version
+# eCherry public version
  Welcome to eCherry, a modelica library to model electrochemical systems.
  In this repository you will find all the parts to build your own model of an electrochemical reactor or electrolyzer.
 Additionally, you will also find multiple working examples. 
 
+![This is the structure of eCherry.](docs_img_etc/Overview_NEW.png "eCherrysstructure"){width=60%}
+
 eCherry is in active development and over time we will add more features and a detailed documentation to aid the user.
-If you have any questions/comments: write a ticket or mail us at: electrochemistry.SVT [ät] avt.rwth-aachen.de-
-There is also a publication on its way which we will integrate here asap.
+Don't be surprised that there are few commits here, the development is happening in a private repo.
+
+
+
+# publication (useful first explanation)
+The structure and theoretical underpinnings have been published in Electrochemical Science Advances (ELSA).
+We tried to break it down, visualize it nicely and it is open access - so give it a look: [https://doi.org/10.1002/elsa.202400030](https://doi.org/10.1002/elsa.202400030)
+
+#compatibility
+eCherry was developed and tested with Dymola 2023x. However, we tested all systems model also with OpenModelica and going forward want to write all models as compatible with both
 
 # getting started
 If you want to use eCherry: [how to get started](https://git.rwth-aachen.de/avt-svt/public/echerry/-/wikis/Getting-Started).
 Further explanation can be found in the [wiki](https://git.rwth-aachen.de/avt-svt/public/echerry/-/wikis/home).
-# more detailed explanation
-With the rising need of defossilizing the chemical industry, the development of processes comprised of electrochemical reactors has become increasingly of interest. Since experimental investigations of novel reactor concepts are costly and time-intensive, computer-aided methods may aid in the design process. However, existing computer-aided models of electrochemical reactors have been tailored for one specific process concept, which makes them hard to reapply for other research questions with slightly different reactor and process concepts. Such reusability and adjustability can be achieved by (open) modeling libraries, which are well established in computer-aided process engineering for applications. However, we find such libraries lacking for electrochemical applications.
 
-Herein, we present an open-source library in the modeling language Modelica that allows building models for a variety of (dynamic) electrochemical applications. We name it the Electrochemical Reactor Dynamics Modelica Library (eCherry). Modularization, inheritance, and aggregation as well as easy-to-use graphical representation allow the user to build highly customizable models in a quick and easy-to-understand way based on a structured modeling approach.
+# questions & contact
+We think (modeling) code should be open and should be discussed. 
+If you have any questions/comments: write a ticket or mail us at: electrochemistry.SVT [ät] avt.rwth-aachen.de
+eCherry's next version is already in the making.
 
-The model library comprises models for different components of electrochemical reactors that can be connected to form models of an overall reactor. Internally, these are again composed of models for individual phenomena, including model equations describing, e.g., conservation of species, transport phenomena, or (chemical and electrochemical) reactions. The component models contain connectors that allow exchange of material or current with other components. This library is written in the open-source and object-oriented modeling language Modelica, which allows the interconnection to other well-established libraries in Modelica.
+![Look at me, I am a sparkly cherry.](docs_img_etc/Echery_icon3.png "eChery logo"){width=10%}
 
-
-
-=====================================================================  \n
+# license
+==================================================================== \n  
 
 (c) Lehrstuhl fuer Systemverfahrenstechnik/Prozesstechnik, RWTH Aachen \n
-=====================================================================  \n
+===================================================================== \n
 
 
 eCherry has been developed and is under continuous development at AVT.SVT (RWTH Aachen). 
