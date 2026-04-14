@@ -27,7 +27,6 @@ partial model ElectrodeReaction_Base
   // Species handling
   parameter Data.DataRecords.Species.SpeciesRecord specRec;
   input Temperature T "in K";
-  parameter Temperature T0;
   parameter Data.DataRecords.ElecReaction.Reaction reac;
   parameter Length Y "in m";
   parameter Length Z "in m";

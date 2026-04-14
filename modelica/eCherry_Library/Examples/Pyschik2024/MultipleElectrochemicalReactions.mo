@@ -108,15 +108,15 @@ equation
   connect(Anode.n, Anolyte.p)
     annotation (Line(points={{-72,-20},{-50,-20}}, color={0,0,255}));
   connect(Anolyte.leftFlow, Anode.flowFromElectrolyte) annotation (Line(points={{-50,-14},
-          {-66,-14},{-66,-2},{-92,-2},{-92,-14}},            color={0,0,0}));
+          {-66,-14},{-66,-2},{-82,-2},{-82,-10}},            color={0,0,0}));
   connect(Anolyte.inFlow, AnodeInflow.convFlow)
     annotation (Line(points={{-40,-30},{-40,-40}}, color={0,0,0}));
   connect(Catholyte.inFlow, CathodeInflow.convFlow)
     annotation (Line(points={{40,-30},{40,-40}}, color={0,0,0}));
   connect(Flow_Cathode.convinFlow, Catholyte.outFlow)
     annotation (Line(points={{40,-4},{40,-10}}, color={0,0,0}));
-  connect(membrane.catCon, Catholyte.leftFlow) annotation (Line(points={{10,-14},
-          {30,-14}},                            color={0,0,0}));
+  connect(membrane.catCon, Catholyte.leftFlow) annotation (Line(points={{9,-15},
+          {20,-15},{20,-14},{30,-14}},          color={0,0,0}));
   connect(Catholyte.p, membrane.n) annotation (Line(points={{30,-20},{10,-20}},
                                 color={0,0,255}));
   connect(membrane.anCon, Anolyte.rightFlow) annotation (Line(points={{-10,-14},
@@ -124,7 +124,7 @@ equation
   connect(membrane.p, Anolyte.n) annotation (Line(points={{-10,-20},{-30,-20}},
                                          color={0,0,255}));
   connect(Catholyte.rightFlow, cathode.flowFromElectrolyte) annotation (Line(
-        points={{50,-14},{61.1,-14},{61.1,-14},{72,-14}},       color={0,0,0}));
+        points={{50,-14},{61.1,-14},{61.1,-10},{82,-10}},       color={0,0,0}));
   connect(Catholyte.n, cathode.p) annotation (Line(points={{50,-20},{72,-20}},
                                      color={0,0,255}));
   connect(cathode.n, Ground.p) annotation (Line(points={{92,-20},{96,-20},{96,

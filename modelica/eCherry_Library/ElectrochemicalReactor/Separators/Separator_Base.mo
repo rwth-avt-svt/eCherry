@@ -22,7 +22,8 @@ partial model Separator_Base
   // Input parameters
   parameter Length X=GeoRec.X_membrane;
   parameter Length Y=GeoRec.Y;
-  parameter Length Z=GeoRec.Z;
+  parameter Integer slices = GeoRec.slices "needed for inflow temperature T0 (density calc.)";
+  parameter Length Z=GeoRec.Z/slices;
   parameter Volume V_geo=X*Y*Z;
   parameter Conductivity kappa=GeoRec.cond0;
 

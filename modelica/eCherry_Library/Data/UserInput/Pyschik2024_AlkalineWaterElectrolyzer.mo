@@ -53,7 +53,8 @@ record Pyschik2024_AlkalineWaterElectrolyzer
     Y=0.03^0.5,
     Z=0.03^0.5,
     cond0=1,
-    dX=1e-6);
+    dX=1e-6,
+    slices=1);
 
 
   //Conditions: Define  constant Temperature and pressure within the electrolyzer

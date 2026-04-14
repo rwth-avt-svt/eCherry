@@ -3,13 +3,7 @@ model Compartment_Conti_0D_GL
   extends
     eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.Compartment_Base;
 
-  constant Real R = 8.314 "ideal gas constant J/molK";
-  parameter Pressure P;
-
   // Variables
-  Concentration c[specRec.nSpec]; // concentrations in the compartment
-  Volume V_L "water volume"; //approximately volume of liquid phase
-  Volume V_G "gas volume in compartment";
   AmountOfSubstance mol_tot_L;
   AmountOfSubstance mol_tot;
   AmountOfSubstance mol_vec_G[GSpec.nSpec];

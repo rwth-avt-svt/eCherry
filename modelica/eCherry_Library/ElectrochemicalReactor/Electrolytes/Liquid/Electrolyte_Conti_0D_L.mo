@@ -3,7 +3,7 @@ model Electrolyte_Conti_0D_L
   "Lumped Compartment with material hold-up, diffusive connections, and Ohmic overpotential"
     parameter Concentration c0[specRec.nSpec] "initial concentration";
 
-  extends MaterialDomain.Compartments.Liquid.Compartment_Conti_0D_L(        mol_vec0=
+  extends MaterialDomain.Compartments.Liquid.Compartment_Conti_0D_L(mol_vec0=
         V_geo*c0);//_VgeoFix is massbased!
   extends ElectricalDomain.Ohmic_Overpotentials.OhmicOverpotential_Electrolyte;
 

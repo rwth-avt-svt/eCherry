@@ -21,7 +21,8 @@ record Example_AlkalineWaterElectrolysis_KOH
     Y=0.05,
     Z=0.05,
     cond0=1,
-    dX=1e-6);
+    dX=1e-6,
+    slices=1);
 
   //Conditions: Define  constant Temperature and pressure within the electrolyzer
   constant DataRecords.Conditions CondRec(

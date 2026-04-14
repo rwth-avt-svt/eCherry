@@ -8,7 +8,8 @@ model ConnectionLayer_Diffusive
 
   // Input parameters
   parameter Length Y=GeoRec.Y "length of the connection layer";
-  parameter Length Z=GeoRec.Z "height of the connection layer";
+  parameter Integer slices = GeoRec.slices "number of compartements / discretisation steps";
+  parameter Length Z=GeoRec.Z/slices "perpendicular to discretization direction";
   parameter Length dX "width of connection layer (e.g., average of cell widths of adjacent compartments)";
 
   // Other parameters

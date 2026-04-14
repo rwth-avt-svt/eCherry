@@ -7,6 +7,7 @@ record Geometry
   parameter Real Z;
   parameter Real cond0;
   parameter Real dX;
+  parameter Integer slices=1;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));

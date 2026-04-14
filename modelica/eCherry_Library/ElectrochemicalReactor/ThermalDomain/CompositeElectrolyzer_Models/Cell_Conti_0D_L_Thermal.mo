@@ -119,6 +119,7 @@ model Cell_Conti_0D_L_Thermal
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal.Electrolyte_Conti_0D_L_Thermal Anolyte(
     c0=c0,
+    Pr=CondRec.p,
     specRec=specRec,
     GeoRec=GeoRec,
     CondRec=CondRec,
@@ -134,6 +135,7 @@ model Cell_Conti_0D_L_Thermal
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
   eCherry_Library.ElectrochemicalReactor.Electrolytes.Thermal.Electrolyte_Conti_0D_L_Thermal Catholyte(
     c0=c0,
+    Pr=CondRec.p,
     specRec=specRec,
     GeoRec=GeoRec,
     CondRec=CondRec,
@@ -157,16 +159,6 @@ model Cell_Conti_0D_L_Thermal
     molFlow_vec=molFlow_vec_inFlow,
     EBRec=EBRec)
     annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
-  MaterialDomain.Flows.Material_Simple_ConnectingFlow connectingFlow_L_Anolyte(
-      specRec=specRec)
-    annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
-  MaterialDomain.Flows.Material_Simple_ConnectingFlow
-    connectingFlow_L_Catholyte(specRec=specRec)
-    annotation (Placement(transformation(extent={{30,20},{50,40}})));
-  MaterialDomain.Flows.Environment environment_L_Anolyte(specRec=specRec)
-    annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
-  MaterialDomain.Flows.Environment environment_L_Catholyte(specRec=specRec)
-    annotation (Placement(transformation(extent={{30,50},{50,70}})));
   ConnectionLayers.ConnectionLayer_CompositeHT compositeConnectionLayer(
     GeoRec=GeoRec,
     alpha=EBRec.alpha_anode_electrolyte,
@@ -187,6 +179,18 @@ model Cell_Conti_0D_L_Thermal
     alpha=EBRec.alpha_membrane_catholyte,
     useConvection=true) annotation (Placement(transformation(extent={{-10,-10},
             {10,10}}, origin={20,-20})));
+  MaterialDomain.Flows.Thermal.Material_Simple_ConnectingFlow_Thermal
+    material_Simple_ConnectingFlow_Thermal(specRec=specRec)
+    annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
+  MaterialDomain.Flows.Thermal.Material_Simple_ConnectingFlow_Thermal
+    material_Simple_ConnectingFlow_Thermal1(specRec=specRec)
+    annotation (Placement(transformation(extent={{30,20},{50,40}})));
+  MaterialDomain.Flows.Thermal.Environment_Thermal environment_L_Anolyte(
+      specRec=specRec)
+    annotation (Placement(transformation(extent={{-50,54},{-30,74}})));
+  MaterialDomain.Flows.Thermal.Environment_Thermal environment_L_Catholyte(
+      specRec=specRec)
+    annotation (Placement(transformation(extent={{30,54},{50,74}})));
 equation
   connect(Catholyte.inFlow, fixedConvInflow_L_Cathode.convFlow)
     annotation (Line(points={{40,-10},{40,-40}}, color={0,0,0}));
@@ -196,24 +200,17 @@ equation
     annotation (Line(points={{-40,-10},{-40,-40}}, color={0,0,0}));
   connect(Anolyte.heatConvInFlow, fixedConvInflow_L_Anode.convHeatFlow)
     annotation (Line(points={{-45,-11},{-45,-39}}, color={0,0,0}));
-  connect(Anolyte.outFlow, connectingFlow_L_Anolyte.convinFlow)
-    annotation (Line(points={{-40,10},{-40,20}}, color={0,0,0}));
   connect(Anode.flowFromElectrolyte, Anolyte.leftFlow) annotation (Line(points={{-80,10},
           {-60,10},{-60,8},{-50,8},{-50,6}},      color={0,0,0}));
   connect(Anode.n, Anolyte.p)
     annotation (Line(points={{-70,0},{-50,0}}, color={0,0,255}));
-  connect(environment_L_Anolyte.convFlow, connectingFlow_L_Anolyte.convoutFlow)
-    annotation (Line(points={{-40,50},{-40,40}}, color={0,0,0}));
-  connect(environment_L_Catholyte.convFlow, connectingFlow_L_Catholyte.convoutFlow)
-    annotation (Line(points={{40,50},{40,40}}, color={0,0,0}));
-  connect(connectingFlow_L_Catholyte.convinFlow, Catholyte.outFlow)
-    annotation (Line(points={{40,20},{40,10}}, color={0,0,0}));
   connect(Catholyte.rightFlow, Cathode.flowFromElectrolyte) annotation (Line(
         points={{50,6},{60,6},{60,10},{80,10}},         color={0,0,0}));
   connect(Catholyte.n, Cathode.p) annotation (Line(points={{50,0},{70,0}},
                               color={0,0,255}));
   connect(Membrane.catCon, Catholyte.leftFlow)
-    annotation (Line(points={{10,6},{30,6}}, color={0,0,0}));
+    annotation (Line(points={{9,5},{20,5},{20,6},{30,6}},
+                                             color={0,0,0}));
   connect(Membrane.n, Catholyte.p)
     annotation (Line(points={{10,0},{30,0}}, color={0,0,255}));
   connect(Anolyte.n, Membrane.p)
@@ -244,6 +241,26 @@ equation
     annotation (Line(points={{30,-4.6},{30,-24}}, color={0,0,0}));
   connect(Membrane.rightHeatFlow, compositeConnectionLayer3.leftHeatFlow)
     annotation (Line(points={{10,-4.6},{10,-24}}, color={0,0,0}));
+  connect(material_Simple_ConnectingFlow_Thermal1.convInFlow, Catholyte.outFlow)
+    annotation (Line(points={{40,20},{40,10}}, color={0,0,0}));
+  connect(material_Simple_ConnectingFlow_Thermal.convInFlow, Anolyte.outFlow)
+    annotation (Line(points={{-40,20},{-40,10}}, color={0,0,0}));
+  connect(Anolyte.heatConvOutFlow, material_Simple_ConnectingFlow_Thermal.heatConvInFlow)
+    annotation (Line(points={{-45,11},{-45.3,11},{-45.3,20.1}}, color={0,0,0}));
+  connect(material_Simple_ConnectingFlow_Thermal1.heatConvInFlow, Catholyte.heatConvOutFlow)
+    annotation (Line(points={{34.7,20.1},{34.7,11},{35,11}}, color={0,0,0}));
+  connect(environment_L_Anolyte.convFlow,
+    material_Simple_ConnectingFlow_Thermal.convOutFlow)
+    annotation (Line(points={{-40,54},{-40,40}}, color={0,0,0}));
+  connect(environment_L_Anolyte.heatConvInFlow,
+    material_Simple_ConnectingFlow_Thermal.heatConvOutFlow) annotation (Line(
+        points={{-45.3,54.1},{-45.3,47},{-45.1,47},{-45.1,39.9}}, color={0,0,0}));
+  connect(environment_L_Catholyte.convFlow,
+    material_Simple_ConnectingFlow_Thermal1.convOutFlow)
+    annotation (Line(points={{40,54},{40,40}}, color={0,0,0}));
+  connect(environment_L_Catholyte.heatConvInFlow,
+    material_Simple_ConnectingFlow_Thermal1.heatConvOutFlow) annotation (Line(
+        points={{34.7,54.1},{34.7,47},{34.9,47},{34.9,39.9}}, color={0,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));
 end Cell_Conti_0D_L_Thermal;

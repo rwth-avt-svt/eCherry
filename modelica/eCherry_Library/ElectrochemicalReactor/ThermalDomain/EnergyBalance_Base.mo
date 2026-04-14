@@ -3,7 +3,7 @@ partial model EnergyBalance_Base
 
   parameter Temperature Tref = 298.15 "Refrence temperature for calculation of heat capacity";
   parameter Pressure Pr;//=1e5;
-  parameter Volume V;//=1;
+  input Volume V;//=1;
   parameter Data.DataRecords.Thermal EBRec;
 
 // Variables
@@ -13,7 +13,7 @@ partial model EnergyBalance_Base
   EnthalpyFlowRate HFlow "Enthalpy flow entering the system";
   Power WFlow "Work flow entering the system";
   replaceable model TemperatureModel =
-      Properties.TemperatureModels.TemperatureConstant
+      Properties.TemperatureModels.TemperatureBase
    annotation(choices(
     choice=Thermodynamics.TemperatureConstant
     "Constant Temperature",

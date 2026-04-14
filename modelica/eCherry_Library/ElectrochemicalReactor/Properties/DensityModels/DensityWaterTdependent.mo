@@ -1,8 +1,6 @@
 within eCherry_Library.ElectrochemicalReactor.Properties.DensityModels;
 model DensityWaterTdependent
   extends DensityBase;
-  input Temperature T  "Temperature in K";
-  output Density rho_i(start=1000)  "Density water at given temperature";
 protected
   parameter Real c0 = 251.828518;
   parameter Real c1 = 6.602101093;

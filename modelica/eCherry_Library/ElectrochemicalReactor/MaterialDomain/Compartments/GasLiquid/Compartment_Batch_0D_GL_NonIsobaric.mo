@@ -10,7 +10,6 @@ model Compartment_Batch_0D_GL_NonIsobaric
 
   Mass mi[AllSpec];
   AmountOfSubstance mol_tot;
-  Pressure P;
   replaceable model DensityModel =
       Properties.DensityModels.DensityWaterTdependent(T=T)
       annotation(choices(

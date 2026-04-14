@@ -4,7 +4,7 @@ model Compartment_Conti_0D_L
 
   // Input parameters
 
-  extends Compartment_Base(V_geo=X*Y*Z);
+  extends Compartment_Base;
   parameter Integer aux=0;
   replaceable model DensityModel =
       Properties.DensityModels.DensityWaterTdependent(T=T)
@@ -12,7 +12,9 @@ model Compartment_Conti_0D_L
     choice=Properties.DensityModels.DensityConstant
     "Constant density",
     choice=Properties.DensityModels.DensityWaterTdependent
-    "Temperature dependent water density"));
+    "Temperature dependent water density",
+    choice=Properties.DensityModels.DensityMix
+    "Density mix (KOH)"));
   DensityModel model_rho_w;
   inner Density rho_w;
 

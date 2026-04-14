@@ -16,7 +16,8 @@ record Pyschik2024_ElectrolyzerColdStart
     X_membrane=0.0005,
     Z=1.631,
     cond0=1,
-    dX=1e-6);
+    dX=1e-6,
+    slices=1);
 
   //Conditions: Define  constant Temperature and pressure within the electrolyzer
   constant Data.DataRecords.Conditions CondRec(

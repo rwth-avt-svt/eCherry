@@ -30,7 +30,8 @@ record Example_AlkalineWaterElectrolysis
     Y=1,
     Z=1,
     cond0=1,
-    dX=1e-6);
+    dX=1e-6,
+    slices=1);
     constant Length X_difflayer=1e-6;
 
   //Conditions: Define  constant Temperature and pressure within the electrolyzer

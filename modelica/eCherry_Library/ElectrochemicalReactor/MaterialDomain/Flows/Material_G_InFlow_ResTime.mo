@@ -4,9 +4,10 @@ model Material_G_InFlow_ResTime
 
   // parameters
   parameter Data.DataRecords.Conditions CondRec;
+  parameter Pressure p = CondRec.p;
 
 equation
-  molFlow_vec = (CondRec.p*V_flow)/(R*CondRec.T0) "in mol/s";
+  molFlow = (p*V_flow)/(R*T) "in mol/s";
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));

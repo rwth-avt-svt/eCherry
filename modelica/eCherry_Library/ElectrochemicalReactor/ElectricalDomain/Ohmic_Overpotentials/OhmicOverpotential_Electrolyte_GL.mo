@@ -8,7 +8,8 @@ model OhmicOverpotential_Electrolyte_GL
   CurrentDensity j(start=500);
   parameter Length X=GeoRec.X;
   parameter Length Y=GeoRec.Y;
-  parameter Length Z=GeoRec.Z;
+  parameter Integer slices = GeoRec.slices "number of compartements / discretisation steps";
+  parameter Length Z=GeoRec.Z/slices "perpendicular to discretization direction";
   Conductivity kappa;
   inner Conductivity kappa_L;
   inner parameter Conductivity kappa_const = 80

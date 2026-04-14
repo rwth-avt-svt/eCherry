@@ -4,14 +4,10 @@ model Compartment_Batch_0D_GL_IsobaricFlashed
   extends
     eCherry_Library.ElectrochemicalReactor.MaterialDomain.Compartments.GasLiquid.Compartment_Base;
 
-  constant Real R = 8.314 "ideal gas constant J/molK";
-  parameter Pressure P;
-
   // Variables
   AmountOfSubstance mol_tot_L;
   AmountOfSubstance mol_vec_G[GSpec.nSpec];
   AmountOfSubstance mol_vec_L[DSpec.nSpec+LSpec.nSpec];
-  AmountOfSubstance mol_vec[GSpec.nSpec+DSpec.nSpec+LSpec.nSpec];
   MolarFlowRate molFlow_tot_out "molar gas flow leaving the compartment";
   MolarFlowRate molFlow_vec_out[GSpec.nSpec]
                                             "gaseous species molar flows leaving";

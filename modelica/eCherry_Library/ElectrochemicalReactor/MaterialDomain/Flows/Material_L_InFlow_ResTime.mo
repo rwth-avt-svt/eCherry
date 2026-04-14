@@ -3,20 +3,27 @@ model Material_L_InFlow_ResTime
   extends Material_Simple_InFlow_ResTime_Base;
 
   // parameters
-  parameter MolarMass M = 0.021762 "(KOH = 0.021762) in kg/mol";
-  parameter Density rho = 1224.84 "(KOH = 1224.84) in kg/m^3, for 333,15K, density is a function of temperature and concentration!";
+  inner parameter Concentration c[specRec.nSpec];
   Density rho_calc "calculated density";
-  parameter Temperature T = CondRec.T0 "Temperature of the input flow";
+  parameter MolarMass M = Data.DataRecords.Species.DissolvedSpecies.KOH.M "Molar mass of KOH in kg/mol";
+  parameter MolarMass M_mean = sum(c[k]/sum(c)*specRec.species[k].M for k in 1:specRec.nSpec) "mean molar mass in inflow";
 
   // density model
-  ElectrochemicalReactor.Properties.DensityModels.DensityConstant density(
-     each T=T);
+  replaceable model DensityModel =
+     Properties.DensityModels.DensityKOH(T=T)
+     annotation(choices(
+       choice=Properties.DensityModels.DensityConstant
+       "Constant density",
+       choice=Properties.DensityModels.DensityWaterTdependent
+       "Temperature dependent water density",
+       choice=Properties.DensityModels.DensityMix
+       "density mix (KOH)"));
+
+  DensityModel model_rho;
 
 equation
-
-  // to do: update density function for KOH and calculate molar flow with that
-  molFlow_vec = (V_flow*rho)/M "in mol/s";
-  rho_calc = density.rho_i;
+  molFlow = (V_flow*rho_calc)/M_mean "in mol/s";
+  rho_calc = model_rho.rho_i;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)));

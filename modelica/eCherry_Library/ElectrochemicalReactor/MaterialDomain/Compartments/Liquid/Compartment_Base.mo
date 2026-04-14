@@ -8,10 +8,11 @@ partial model Compartment_Base
   parameter Data.DataRecords.Conditions CondRec;
   parameter Length X=GeoRec.X "along discretization direction";
   parameter Length Y=GeoRec.Y "perpendicular to discretization direction";
-  parameter Length Z=GeoRec.Z "perpendicular to discretization direction";
+  parameter Integer slices = GeoRec.slices "number of compartements / discretisation steps";
+  parameter Length Z=GeoRec.Z/slices "perpendicular to discretization direction";
 
   // Input parameters
-  parameter Volume V_geo;
+  parameter Volume V_geo=X*Y*Z;
   parameter AmountOfSubstance mol_vec0[specRec.nSpec]
                                                      "initial amounts";
 

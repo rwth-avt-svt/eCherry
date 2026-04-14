@@ -58,6 +58,7 @@ model AlkalineWaterElectrolyzer
 
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
     Catholyte(
+    c0=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.c0,
     redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
@@ -78,10 +79,11 @@ model AlkalineWaterElectrolyzer
     source(
     GeoRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.GeoRec,
     j0=1,
-    dj=0.01) annotation (Placement(transformation(extent={{16,48},{-4,68}})));
+    dj=0.01) annotation (Placement(transformation(extent={{10,48},{-10,68}})));
 
   eCherry_Library.ElectrochemicalReactor.Electrolytes.GasLiquid.Electrolyte_Conti_0D_GL
     Anolyte(
+    c0=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.c0,
     redeclare model TemperatureModel =
       Properties.TemperatureModels.TemperatureConstant,
     specRec=eCherry_Library.Data.UserInput.Pyschik2024_AlkalineWaterElectrolyzer.AWEspec,
@@ -107,11 +109,11 @@ model AlkalineWaterElectrolyzer
 equation
 
   connect(Anode.p, source.n) annotation (Line(points={{-92,-20},{-96,-20},{-96,
-          58},{-4,58}},      color={0,0,255}));
-  connect(source.p, Cathode.n) annotation (Line(points={{16,58},{94,58},{94,-20},
+          58},{-10,58}},     color={0,0,255}));
+  connect(source.p, Cathode.n) annotation (Line(points={{10,58},{94,58},{94,-20},
           {90,-20}},                      color={0,0,255}));
   connect(Ground.p, source.p) annotation (Line(points={{60,74},{60,76},{26,76},
-          {26,58},{16,58}}, color={0,0,255}));
+          {26,58},{10,58}}, color={0,0,255}));
   connect(Anolyte.p, Anode.n) annotation (Line(points={{-50,-20},{-72,-20}},
                            color={0,0,255}));
   connect(Anolyte.n, Diaphragm.p) annotation (Line(points={{-30,-20},{-10,-20}},

@@ -2,38 +2,17 @@ within eCherry_Library.ElectrochemicalReactor.Electrodes;
 model Electrode_GasDiffusion
   extends Electrode_Base;
 
-  // Replaceable submodel
-  replaceable model ActivationOverpotentialModel =
-    Electrochemistry.Activation_Overpotential.ActivationOverpotential
-    annotation (choices(
-   choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotential
-    "BV equation with concentration dependence",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialSpecRec
-    "BV equation with concentration dependence (SpecRec)",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialTafel
-    "Tafel approach",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Activation_Overpotential.ActivationOverpotentialColdStart
-    "Approach from Sakas2022 used for ColdStart example"));
-  replaceable model EquilibriumPotentialModel =
-    Electrochemistry.Equilibrium_Potential.EquilibriumPotential
-    annotation (choices(
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Equilibrium_Potential.EquilibriumPotential
-    "Nernst equation",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Equilibrium_Potential.EquilibriumPotentialSpecRec
-    "Nernst equation for SpecRec",
-    choice=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Equilibrium_Potential.EquilibriumPotentialColdStart
-    "Approach from Sakas2022 used for ColdStart example"));
-
   // Species handling
-  parameter Integer nReac=size(reac,1);
-  parameter Data.DataRecords.ElecReaction.Reaction reac[:];
-  parameter Boolean CathodeEl "= true, if cathode in electrolysis mode (=anode in galvanic mode), else false";
   parameter Real splitFactor "quotient of H2 flow in electrolyte versus in gas channel";
+
+  // Variables (for simulation data)
+  Real[nReac, specRec.nSpec] prodRatePerArea "production rate per area in mol/s/m^2, for simulation data";
+  Real faradaicEfficiency[nReac] "relation of i,k to i_total";
+  CurrentDensity j;
 
   // Models
   Electrochemistry.ElectrodeReaction_GasDiffusion reactions[nReac](
     each T=T,
-    each T0=T0,
     each Y=Y,
     each Z=Z,
     each specRec=specRec,
@@ -49,6 +28,15 @@ model Electrode_GasDiffusion
     annotation (Placement(transformation(extent={{90,50},{110,70}})));
 
 equation
+  // for simulation data
+  for k in 1:nReac loop
+    faradaicEfficiency[k] = reactions[k].actOp.i/n.i; // faradaic efficiency for NH3 production
+    for l in 1:specRec.nSpec loop
+      prodRatePerArea[k,l] = reactions[k].productionRate[l] / (Y*Z);
+    end for;
+  end for;
+  j = p.i / (Y*Z); // total current density through cathode
+
   // input variables of parent class
   Pi = flowFromGas.Pi;
   c = flowFromElectrolyte.c;

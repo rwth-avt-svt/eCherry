@@ -6,30 +6,33 @@ model ElectrodeReaction_GasDiffusion
   // input parameters
   parameter Real splitFactor "quotient of H2 flow in electrolyte versus in gas channel";
 
-  // variables
-  Real[specRec.nSpec] prodRatePerArea "production rate per area in mol/s/m^2, for simulation data";
+
 
  // connectors
   MaterialDomain.Connectors.Material_Gas flowFromGas(specRec=specRec)
     annotation (Placement(transformation(extent={{90,52},{110,72}})));
   MaterialDomain.Connectors.Material_Liquid flowFromElectrolyte(specRec=specRec)
-    annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
+    annotation (Placement(transformation(extent={{-110,52},{-90,72}}),
+        iconTransformation(extent={{-20,80},{20,120}})));
 
 equation
-
-  // for simulation data
-  prodRatePerArea = productionRate / (Y*Z);
 
   for k in 1:specRec.nSpec loop
 
     if (specRec.species[k].name == "Hydrogen") then
       //flowFromGas.molFlow_vec[k] + (1 - splitFactor) * productionRate[k] = 0;
       //flowFromElectrolyte.molFlow_vec[k] + splitFactor * productionRate[k] = 0;
-      flowFromGas.molFlow_vec[k] + productionRate[k] = 0; // H2 only to NitrogenChannel
+      flowFromGas.molFlow_vec[k] + productionRate[k] = 0; // H2 only to GasChannel
       flowFromElectrolyte.molFlow_vec[k] = 0;
-    elseif (specRec.species[k].name == "Nitrogen") then
-      flowFromGas.molFlow_vec[k] + productionRate[k] = 0; // N2 only from NitrogenChannel
+    elseif (specRec.species[k].name == "Ammonia") then
+      flowFromGas.molFlow_vec[k] +  splitFactor * productionRate[k] = 0;
+      flowFromElectrolyte.molFlow_vec[k] + (1 - splitFactor) * productionRate[k] = 0;
+    elseif (specRec.species[k].state == Data.DataRecords.Species.State.Gas) then
+      flowFromGas.molFlow_vec[k] + productionRate[k] = 0; // gases only from and to GasChannel
       flowFromElectrolyte.molFlow_vec[k] = 0;
+    /* elseif (specRec.species[k].name == "Nitrogen") then
+      flowFromGas.molFlow_vec[k] + productionRate[k] = 0; // N2 only from GasChannel
+      flowFromElectrolyte.molFlow_vec[k] = 0; */
     else
       flowFromElectrolyte.molFlow_vec[k] + productionRate[k] = 0; // rest of species from and to electrolyte
       flowFromGas.molFlow_vec[k] = 0;

@@ -20,7 +20,7 @@ record List_Of_Reactions
     Eeq0=-0.829,
     j0=1000,
     alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
     dH_app=0,
     Eth0=0.5809);
 
@@ -32,7 +32,7 @@ record List_Of_Reactions
     Eeq0=0.401,
     j0=7,
     alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
     dH_app=0,
     Eth0=0.9002);
 
@@ -44,7 +44,7 @@ record List_Of_Reactions
     Eeq0=-0.736,
     j0=1,
     alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
     dH_app=0);
 
    constant Reaction COERAg(
@@ -55,7 +55,7 @@ record List_Of_Reactions
     Eeq0=-0.103,
     j0=1.65*10^(-2),
     alpha_a=0.75,
-    alpha_c=1-0.75,
+    alpha_c=1-0.33,
     dH_app=0);     //0.75,
               //*10^(-2),
                //j0=2.12e-3, alpha_a=0.43
@@ -68,7 +68,7 @@ record List_Of_Reactions
     Eeq0=0,
     j0=19.63*10^(-7),
     alpha_a=0.66,
-    alpha_c=1-0.66,
+    alpha_c=1-0.33,
     dH_app=0,
     Eth0=0.5809);    //0.64,
               //e-10,
@@ -82,7 +82,7 @@ record List_Of_Reactions
     Eeq0=1.229,
     j0=7.16,
     alpha_a=0.89,
-    alpha_c=1-0.89,
+    alpha_c=1-0.33,
     dH_app=0,
     Eth0=0.9002);
 
@@ -94,7 +94,7 @@ record List_Of_Reactions
      Eeq0=0,
      j0=0,
      alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
      Eth0=0.5809);
 
    constant Reaction OERdummy_EB_validation(
@@ -105,7 +105,7 @@ record List_Of_Reactions
     Eeq0=0,
     j0=0,
     alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
     Eth0=0.9002);
 
   constant Reaction HERdummy_ColdStart(
@@ -116,7 +116,7 @@ record List_Of_Reactions
     Eeq0=0,
     j0=0,
     alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
     reacEeq0TModel=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.WaterElectrolysisEmpiricColdStart);
 
   constant Reaction OERdummy_ColdStart(
@@ -127,7 +127,7 @@ record List_Of_Reactions
     Eeq0=0,
     j0=0,
     alpha_a=0.5,
-    alpha_c=1-0.5,
+    alpha_c=1-0.33,
     reacEeq0TModel=eCherry_Library.ElectrochemicalReactor.Electrodes.Electrochemistry.Eeq0.Eeq0Tmodel.WaterElectrolysisEmpiricColdStart);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(

@@ -9,9 +9,10 @@ model HeatExchangeEnvironment
 
  inner parameter Data.DataRecords.Geometry GeoRec;
  inner parameter Data.DataRecords.Conditions CondRec;
- inner parameter Length X=GeoRec.X "along discretization direction";
- inner parameter Length Y=GeoRec.Y "perpendicular to discretization direction";
- inner parameter Length Z=GeoRec.Z "perpendicular to discretization direction";
+  parameter Integer slices = 1 "number of compartements / discretisation steps";
+  parameter Length X=GeoRec.X "along discretization direction";
+  parameter Length Y=GeoRec.Y "perpendicular to discretization direction";
+  parameter Length Z=GeoRec.Z/slices "perpendicular to discretization direction";
  inner parameter Data.DataRecords.Thermal EBRec;
 
 protected
