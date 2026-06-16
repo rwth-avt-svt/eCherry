@@ -1,0 +1,5 @@
+# UNPINNED - no Python env found in this repo on 2026-06-16, so versions unknown.
+# Derived from imports. Pin after install: pip freeze > requirements.txt
+buildingspy
+matplotlib
+pandas
