@@ -18,8 +18,8 @@ We tried to break it down, visualize it nicely and it is open access - so give i
 eCherry was developed and tested with Dymola 2023x. However, we tested all systems model also with OpenModelica and going forward want to write all models as compatible with both
 
 # getting started
-If you want to use eCherry: [how to get started](https://git.rwth-aachen.de/avt-svt/public/echerry/-/wikis/Getting-Started).
-Further explanation can be found in the [wiki](https://git.rwth-aachen.de/avt-svt/public/echerry/-/wikis/home).
+If you want to use eCherry: [how to get started](https://gitlab.git.nrw/rwth-avt-svt/public/echerry/-/wikis/Getting-Started).
+Further explanation can be found in the [wiki](https://gitlab.git.nrw/rwth-avt-svt/public/echerry/-/wikis/home).
 
 # questions & contact
 We think (modeling) code should be open and should be discussed. 
