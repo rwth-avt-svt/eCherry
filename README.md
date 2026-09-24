@@ -28,7 +28,7 @@ Further explanation can be found in the [wiki](https://gitlab.git.nrw/rwth-avt-s
 
 # questions & contact
 We think (modeling) code should be open and should be discussed. 
-If you have any questions/comments: write a ticket or mail us at: electrochemistry.SVT [ät] avt.rwth-aachen.de
+If you have any questions/comments: write a ticket or mail us at: electrochemistry.SVT@avt.rwth-aachen.de
 eCherry's next version is already in the making.
 
 <img src="docs_img_etc/Echery_icon3.png"
