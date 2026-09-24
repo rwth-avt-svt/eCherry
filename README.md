@@ -3,7 +3,12 @@
  In this repository you will find all the parts to build your own model of an electrochemical reactor or electrolyzer.
 Additionally, you will also find multiple working examples. 
 
-![This is the structure of eCherry.](docs_img_etc/Overview_NEW.png "eCherrysstructure"){width=60%}
+<p align="center">
+  <img src="docs_img_etc/Overview_NEW.png"
+       alt="This is the structure of eCherry."
+       title="eCherrysstructure"
+       width="60%">
+</p>
 
 eCherry is in active development and over time we will add more features and a detailed documentation to aid the user.
 Don't be surprised that there are few commits here, the development is happening in a private repo.
@@ -26,13 +31,18 @@ We think (modeling) code should be open and should be discussed.
 If you have any questions/comments: write a ticket or mail us at: electrochemistry.SVT [ät] avt.rwth-aachen.de
 eCherry's next version is already in the making.
 
-![Look at me, I am a sparkly cherry.](docs_img_etc/Echery_icon3.png "eChery logo"){width=10%}
+<img src="docs_img_etc/Echery_icon3.png"
+     alt="Look at me, I am a sparkly cherry."
+     title="eChery logo"
+     width="10%">
 
 # license
-==================================================================== \n  
 
-(c) Lehrstuhl fuer Systemverfahrenstechnik/Prozesstechnik, RWTH Aachen \n
-===================================================================== \n
+===============================================================
+
+(c) Lehrstuhl fuer Systemverfahrenstechnik/Prozesstechnik, RWTH Aachen 
+
+===============================================================
 
 
 eCherry has been developed and is under continuous development at AVT.SVT (RWTH Aachen). 
